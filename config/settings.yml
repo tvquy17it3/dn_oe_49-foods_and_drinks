@@ -21,6 +21,7 @@ gravatar:
   size_80: 80
   size_198: 198
 per_page_15: 15
+per_page_16: 16
 image:
   size_1mb: 5
   format: ["image/png", "image/jpg", "image/jpeg"]

@@ -8027,7 +8027,7 @@ h1, h2, h3, h4, h5,
   color: #82ae46 !important; }
 
 .topper {
-  font-size: 11px;
+  font-size: 13px;
   width: 100%;
   display: block;
   text-transform: uppercase;
@@ -8065,7 +8065,7 @@ h1, h2, h3, h4, h5,
     .ftco-navbar-light .navbar-nav {
       padding-bottom: 10px; } }
   .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-    font-size: 11px;
+    font-size: 14px;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     padding-left: 20px;
@@ -8205,7 +8205,7 @@ h1, h2, h3, h4, h5,
 
 .navbar-brand {
   font-weight: 800;
-  font-size: 20px;
+  font-size: 23px;
   text-transform: uppercase; }
 
 .hero-wrap {

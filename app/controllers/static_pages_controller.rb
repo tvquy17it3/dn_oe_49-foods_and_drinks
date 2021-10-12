@@ -6,8 +6,6 @@ class StaticPagesController < ApplicationController
       Product.enabled.recent_products.take(Settings.show.digit_8)
   end
 
-  def menu; end
-
   def about; end
 
   def blog; end

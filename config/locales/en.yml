@@ -67,6 +67,12 @@ en:
     our_newest_products: "Our Newest Products"
     our_products_nil: "There are no products in the store!"
     see_all: "See All"
+  menu_page:
+    search: "Search"
+    search_name_product: "Search product ..."
+    search_pro_nil: "No matching results were found"
+    quantity: "Quantity: "
+    sold_out: "Sold out product"
   categories:
     categories: "Categories"
   sign_up:

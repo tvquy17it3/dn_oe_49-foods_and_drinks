@@ -29,12 +29,13 @@ categories = Category.order(:created_at).take(6)
   name = Faker::Food.fruits
   price = 200000
   description = Faker::Food.description
+  quantity = rand(0..10)
   status = 1
   categories.each do |category|
     category.products.create!(name: name,
                               price: price,
                               description: description,
-                              quantity: 3,
+                              quantity: quantity,
                               status: status)
   end
 end

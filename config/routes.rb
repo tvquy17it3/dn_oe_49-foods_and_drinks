@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
     root "static_pages#home"
     get :home, to: "static_pages#home"
-    get :menu, to: "static_pages#menu"
+    get :menu, to: "products#index"
     get :about, to: "static_pages#about"
     get :blog, to: "static_pages#blog"
     get :contact, to: "static_pages#contact"
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get :login, to: "sessions#new"
     post :login, to: "sessions#create"
     delete :logout, to: "sessions#destroy"
+    get :order, to: "orders#new"
 
     resources :users, only: %i(new create)
     resources :products, only: :show

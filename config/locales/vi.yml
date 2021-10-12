@@ -58,6 +58,12 @@ vi:
     our_newest_products: "Sản phẩm mới nhất của chúng tôi"
     our_products_nil: "Không Có Sản Phẩm Nào Trong Cửa Hàng!"
     see_all: "Xem Tất Cả"
+  menu_page:
+    search: "Tìm Kiếm"
+    search_name_product: "Tìm kiếm món ăn và thức uống ..."
+    search_pro_nil: "Không tìm thấy kết quả phù hợp"
+    quantity: "Số lượng: "
+    sold_out: "Sản phẩm đã bán hết"
   footer:
     introduce: "Trong cuộc sống của chúng ta, “food and drink” là một trong những lĩnh vực rất quan trọng và không thể thiếu nó."
     help: "Giúp đỡ"

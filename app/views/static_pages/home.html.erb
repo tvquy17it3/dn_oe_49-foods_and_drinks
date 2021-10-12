@@ -14,21 +14,6 @@
         </div>
       </div>
     </div>
-
-    <div class="slider-item" style="background-image: url(/assets/images/bg_2.jpg);">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-          <div class="col-sm-12 ftco-animate text-center">
-            <h1 class="mb-2"><%= t("home_page.we_serve_food_drink") %></h1>
-            <h2 class="subheading mb-4"><%= t("home_page.ensure_the_quality") %></h2>
-            <p><a href="#" class="btn btn-primary"><%= t("home_page.view_details") %></a></p>
-          </div>
-
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -93,7 +78,7 @@
               <div class="text text-center">
                 <h2><%= t("categories.categories") %></h2>
                 <p><%= t("home_page.protect_the_health") %></p>
-                <p><a href="#" class="btn btn-primary"><%= t("home_page.menu_here") %></a></p>
+                <p><%= link_to t("home_page.menu_here"), menu_path, class: "btn btn-primary" %></p>
               </div>
             </div>
           </div>
@@ -142,7 +127,7 @@
       <div class="row">
         <%= render @products %>
         <div class="col-md-12 heading-section text-center ftco-animate">
-          <%= link_to t("home_page.see_all"), "#", class: "mb-4" %>
+          <%= link_to t("home_page.see_all"), menu_path, class: "mb-4" %>
         </div>
       </div>
     <% else %>
