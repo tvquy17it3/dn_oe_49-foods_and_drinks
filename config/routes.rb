@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     get :blog, to: "static_pages#blog"
     get :contact, to: "static_pages#contact"
     get :cart, to: "static_pages#cart"
+    get :login, to: "sessions#new"
+    post :login, to: "sessions#create"
+    delete :logout, to: "sessions#destroy"
+
     resources :users, only: %i(new create)
   end
   namespace :admin do

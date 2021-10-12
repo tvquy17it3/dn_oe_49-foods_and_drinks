@@ -6,6 +6,7 @@ length:
 show:
   show_5: 5
   show_10: 10
+  digit_1: 1
 open: 0
 confirmed: 1
 shipping: 2
@@ -14,4 +15,4 @@ cancelled: 4
 gravatar:
   size_50: 50
   size_80: 80
-per_page: 15
+per_page_15: 15

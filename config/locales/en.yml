@@ -66,6 +66,16 @@ en:
     log_in_with_google: "Log in with Google+"
     message_sign_up_success: "Sign Up Success!"
     message_sign_up_fail: "Sign Up Fail!"
+  log_in:
+    log_in: "Log In"
+    sign_up_now: "Sign Up Now!"
+    new_user: "You are a new user?"
+    invalid_email_or_password: "Invalid email or password!"
+    log_in_unsuccess: "Log in unsuccess!"
+    remember_me: "Remember Me"
+  log_out: "Log Out"
+  profile: "Profile"
+  setting: "Setting"
   form:
     full_name: "Full Name"
     email: "E-mail"

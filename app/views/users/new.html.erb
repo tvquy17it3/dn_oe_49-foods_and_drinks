@@ -7,7 +7,7 @@
     <%= render "layouts/form" %>
     <p>
       <%= t "sign_up.dont_account" %>
-      <a href="#"><%= t "sign_up.log_in_now" %></a>
+      <%= link_to t("sign_up.log_in_now"), login_path %>
     </p>
   </div>
 
