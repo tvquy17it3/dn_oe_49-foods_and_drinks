@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get "order_status/:status", to: "orders#index_by_status", as: :status
       resources :products, only: %i(index show)
     end
+
     root "static_pages#home"
     get :home, to: "static_pages#home"
     get :menu, to: "static_pages#menu"

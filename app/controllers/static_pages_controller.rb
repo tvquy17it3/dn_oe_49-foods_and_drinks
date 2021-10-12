@@ -1,5 +1,10 @@
 class StaticPagesController < ApplicationController
-  def home; end
+  include ProductsHelper
+
+  def home
+    @products =
+      Product.enabled.recent_products.take(Settings.show.digit_8)
+  end
 
   def menu; end
 

@@ -45,7 +45,9 @@ vi:
     protect_the_health: "Bảo vệ sức khỏe mọi nhà"
     menu_here: "Thực đơn ở đây"
     featured_products: "Sản phẩm nổi bật"
-    our_products: "Sản phẩm của chúng tôi"
+    our_newest_products: "Sản phẩm mới nhất của chúng tôi"
+    our_products_nil: "Không Có Sản Phẩm Nào Trong Cửa Hàng!"
+    see_all: "Xem Tất Cả"
   footer:
     introduce: "Trong cuộc sống của chúng ta, “food and drink” là một trong những lĩnh vực rất quan trọng và không thể thiếu nó."
     help: "Giúp đỡ"

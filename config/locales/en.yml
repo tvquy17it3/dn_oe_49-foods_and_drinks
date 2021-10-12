@@ -54,7 +54,9 @@ en:
     protect_the_health: "Protect the health of every home"
     menu_here: "Menu Here"
     featured_products: "Featured Products"
-    our_products: "Our Products"
+    our_newest_products: "Our Newest Products"
+    our_products_nil: "There are no products in the store!"
+    see_all: "See All"
   categories:
     categories: "Categories"
   sign_up:
