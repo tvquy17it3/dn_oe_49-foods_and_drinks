@@ -1,6 +1,13 @@
 *.rbc
 capybara-*.html
+.browserslistrc
+/.framgia-ci-reports/
+.framgia-ci-result.temp.yml
+/config/database.yml
+/config/credentials.yml.enc
+/test/
 .rspec
+/spec
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /db/*.sqlite3-[0-9]*
@@ -65,3 +72,7 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

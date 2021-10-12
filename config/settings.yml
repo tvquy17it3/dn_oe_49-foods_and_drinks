@@ -1,0 +1,6 @@
+length:
+  min_5: 5
+  max_250: 250
+show:
+  show_5: 5
+  show_10: 10
