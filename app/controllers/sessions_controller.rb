@@ -27,6 +27,6 @@ class SessionsController < ApplicationController
     else
       forget(user)
     end
-    redirect_to root_url
+    redirect_back_or root_url
   end
 end

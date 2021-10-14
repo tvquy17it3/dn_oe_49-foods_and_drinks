@@ -1,0 +1,20 @@
+<div class="tracking-item">
+  <div class="tracking-icon status-intransit"></div>
+  <div class="tracking-date">
+    <p class="badge btn <%= t "class.#{order.status}" %>">
+      <%= t "status_order.#{order.status}" %>
+    </p>
+  </div>
+  <div class="tracking-content">
+    <span><b><%= l order.created_at, format: :own %></b></span>
+    <span><b><%= t "orders.order_person" %></b> <%= order.user_name %></span>
+    <span><b><%= t "orders.address" %>:</b> <%= order.address %></span>
+    <span>
+      <b><%= t "orders.total_price" %></b>:
+      <%= number_to_currency(order.total_price, locale: :vi) %>
+    </span>
+    <span>
+      <%= link_to t("orders.view_detail"), user_order_path(current_user, order) %>
+    </span>
+  </div>
+</div>

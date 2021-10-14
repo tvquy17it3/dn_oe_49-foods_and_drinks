@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     delete :logout, to: "sessions#destroy"
     get :order, to: "orders#new"
 
-    resources :users, only: %i(new create)
+    resources :users, only: %i(new create) do
+      resources :orders, only: %i(index show)
+    end
     resources :products, only: :show
   end
 end

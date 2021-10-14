@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag :orders %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+      <div id="tracking">
+        <div class="text-center tracking-status-intransit">
+           <p class="tracking-status text-tight"><%= t "orders.history_orders" %></p>
+        </div>
+        <div class="tracking-list">
+          <% if @orders.any? %>
+            <%= render @orders %>
+            <div class="pagination pagi-bottom justify-content-center">
+              <%= paginate @orders %>
+            </div>
+          <% else %>
+            <h1 class="text-center cart-index-title">
+              <%= t "orders.no_order" %>
+            </h1>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
