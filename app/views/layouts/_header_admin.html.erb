@@ -48,7 +48,7 @@
               <span class="fa fa-chevron-down"></span>
             </a>
             <ul class="nav child_menu">
-              <li><%= link_to t("product.all_products"), "#" %></li>
+              <li><%= link_to t("product.all_products"), admin_products_path %></li>
               <li><%= link_to t("product.categories"), "#" %></li>
               <li><%= link_to t("product.add_product"), "#" %></li>
             </ul>
@@ -93,6 +93,22 @@
   <div class="nav_menu">
     <div class="nav toggle">
       <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+    </div>
+    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right style-language">
+      <span class="text">
+        <ul style="list-style-type: none; ">
+          <li>
+            <%= link_to locale: :vi do %>
+              <%= image_tag "/assets/images/icons-vi.png", class: "icons-lang" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to locale: :en do %>
+              <%= image_tag "/assets/images/icons-en.png", class: "icons-lang" %>
+            <% end %>
+          </li>
+        </ul>
+      </span>
     </div>
     <nav class="nav navbar-nav">
       <ul class=" navbar-right">

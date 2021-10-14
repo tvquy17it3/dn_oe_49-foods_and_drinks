@@ -13,4 +13,7 @@ Rails.application.routes.draw do
     get :cart, to: "static_pages#cart"
     resources :users, only: %i(new create)
   end
+  namespace :admin do
+    resources :products, only: %i(index)
+  end
 end

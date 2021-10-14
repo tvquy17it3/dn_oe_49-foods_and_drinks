@@ -86,6 +86,11 @@ en:
     all: "All"
   you_sure: "Are you sure?"
   error_path: "Error path"
+  page_index_product_admin:
+    title: "All Products"
+    subject: "All Products"
+    notification_nil: "There are currently no products"
+    button: "Add"
   views:
     pagination:
       first: "« FIRST"

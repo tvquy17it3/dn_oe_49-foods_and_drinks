@@ -1,0 +1,22 @@
+<% provide :title, t("page_index_product_admin.title") %>
+<h1 class="subject">
+  <%= t "page_index_product_admin.subject" %>
+</h1>
+<% if @products.any? %>
+  <ul class="ul_index">
+    <%= paginate @products%>
+    <% @products.each do |product| %>
+      <li class="li_index">
+        <%= gravatar_for product, size: Settings.gravatar.size_80 %>
+        <%= link_to product.name, "#", class: "index_product_name" %>
+      </li>
+    <% end %>
+    <%= paginate @products%>
+  </ul>
+<% else %>
+  <div class="index_product_nil">
+    <h1><%= t "page_index_product_admin.notification_nil" %></h1>
+    <%= link_to t("page_index_product_admin.button"), "#",
+      class: "btn btn-primary"%>
+  </div>
+<% end %>
