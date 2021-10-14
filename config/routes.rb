@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     namespace :admin do
-      root "admins#index"
+      root "orders#index"
       resources :orders do
         member do
           put :approve
@@ -31,7 +31,9 @@ Rails.application.routes.draw do
     get :order, to: "orders#new"
 
     resources :users, only: %i(new create) do
-      resources :orders, only: %i(index show)
+      resources :orders, only: %i(index show) do
+        put :cancel, on: :member
+      end
     end
     resources :products, only: :show
   end

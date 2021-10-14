@@ -66,3 +66,15 @@ User.all.sample(10).each do |user|
     product_id: product[0].id)
   order.save
 end
+
+phone = Faker::PhoneNumber.phone_number
+address = Faker::Address.full_address
+user = User.create!(name: "Admin",
+                   email: "admintest@gmail.com",
+                   password: "123456789",
+                   password_confirmation: "123456789",
+                   status: true,
+                   role: 1)
+user.addresses.create!(name: user.name,
+                       phone: phone,
+                       address: address)

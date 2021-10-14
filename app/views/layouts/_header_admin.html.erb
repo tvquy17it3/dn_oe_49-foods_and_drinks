@@ -82,7 +82,11 @@
               <li><%= link_to t("account.blocked"), "#" %></li>
             </ul>
           </li>
-          <li><a href=""><i class="fa fa-home" aria-hidden="true"></i><%= t "back_home" %></a></li>
+          <li>
+            <%= link_to root_path do %>
+              <i class="fa fa-home" aria-hidden="true"></i><%= t "back_home" %>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>

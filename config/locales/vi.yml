@@ -240,3 +240,5 @@ vi:
     title: "Cập nhật sản phẩm"
     msg_update_success: "Cập nhật thành công"
     msg_update_fail: "Cập nhật thất bại"
+  not_permission: "Không có quyền truy cập!"
+  dashboard: "Quản lý trang"

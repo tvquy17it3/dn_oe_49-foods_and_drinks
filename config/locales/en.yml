@@ -240,3 +240,5 @@ en:
     title: "Update Product"
     msg_update_success: "Update successfully"
     msg_update_fail: "Update fail"
+  not_permission: "Not permission!"
+  dashboard: "Dashboard"
