@@ -85,6 +85,13 @@ vi:
     no_order: "Không có đơn hàng"
     all: "Tất cả"
     created_order: "Ngày đặt"
+    product_name: "Sản phẩm"
+    ordinal_number: "Số thứ tự"
+    quantity: "Số lượng"
+    price: "Đơn giá"
+    total_price: "Tổng"
+    order_detail: "Chi tiết đơn hàng"
+    total: "Thành tiền"
   class:
     open: "badge-primary"
     confirmed: "badge-info"
