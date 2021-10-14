@@ -84,6 +84,19 @@ en:
     update_fail: "Cancel fail!"
     no_order: "No order"
     all: "All"
+    created_order: "Order day"
+  class:
+    open: "badge-primary"
+    confirmed: "badge-info"
+    shipping: "badge-secondary"
+    completed: "badge-success"
+    cancelled: "badge-danger"
+  time:
+    formats:
+      own: "%H:%M:%S, %d %B %Y"
+      default: "%d-%m-%Y"
+      long: "%d %B, %Y"
+      short: "%d %b"
   you_sure: "Are you sure?"
   error_path: "Error path"
   views:

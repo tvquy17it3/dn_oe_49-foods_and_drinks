@@ -84,6 +84,19 @@ vi:
     update_fail: "Thất bại!"
     no_order: "Không có đơn hàng"
     all: "Tất cả"
+    created_order: "Ngày đặt"
+  class:
+    open: "badge-primary"
+    confirmed: "badge-info"
+    shipping: "badge-secondary"
+    completed: "badge-success"
+    cancelled: "badge-danger"
+  time:
+    formats:
+      own: "%H:%M:%S, %d %B %Y"
+      default: "%d-%m-%Y"
+      long: "%d %B, %Y"
+      short: "%d %b"
   you_sure: "Bạn có chắc chắn?"
   error_path: "Lỗi đường dẫn"
   views:
