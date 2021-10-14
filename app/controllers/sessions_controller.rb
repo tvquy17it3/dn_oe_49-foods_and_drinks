@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :not_login, only: :new
   layout "signup_signin"
 
   def new; end
@@ -27,6 +28,6 @@ class SessionsController < ApplicationController
     else
       forget(user)
     end
-    redirect_to root_url
+    redirect_back_or root_url
   end
 end

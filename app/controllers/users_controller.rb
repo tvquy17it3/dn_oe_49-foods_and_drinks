@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :not_login, only: :new
   layout "signup_signin"
 
   def new

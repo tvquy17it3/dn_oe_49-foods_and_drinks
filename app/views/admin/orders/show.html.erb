@@ -22,6 +22,18 @@
         </div>
         <% if @order %>
           <div class="x_content">
+            <div class="title-info-order"><%= t "orders.order_person" %></div>
+            <div class="infor_order row">
+              <div class="col-md-1 infor_col">
+                <p><%= t "orders.fullname" %>:</p>
+                <p><%= t "orders.email" %>:</p>
+              </div>
+              <div class="col-md-8">
+                <p><%= @order.user_name %></p>
+                <p><%= @order.user_email %></p>
+              </div>
+            </div><br>
+            <div class="title-info-order"><%= t "orders.order_infor" %></div>
             <div class="infor_order row">
               <div class="col-md-1 infor_col">
                 <p><%= t "orders.fullname" %>:</p>
@@ -42,6 +54,22 @@
                 <p><%= l @order.created_at, format: :own %></p>
               </div>
             </div>
+            <!-- change status -->
+            <div>
+              <% unless @order.cancelled? %>
+                <%= link_to admin_order_path(@order,
+                      status: next_status(@order.status)),
+                      method: :put,
+                      data: { confirm: t("you_sure") } do
+                %>
+                  <button type="button" class="btn btn-sm <%= t("class.#{next_status(@order.status)}") %>">
+                    <%= t "orders.change_status_to" %>
+                    <%= t("status_order.#{next_status(@order.status)}") %>
+                  </button>
+                <% end %>
+              <% end %>
+            </div><br>
+            <!-- /change status -->
             <div class="row">
               <div class="col-sm-12">
                 <div class="card-box table-responsive">

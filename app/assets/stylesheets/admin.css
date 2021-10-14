@@ -32,7 +32,7 @@
 }
 
 .infor_order{
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .infor_col p{
@@ -63,4 +63,11 @@
 .tr-body-show{
   font-size: 15px;
   text-align: center;
+}
+
+.title-info-order{
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+  margin-bottom: 6px;
 }

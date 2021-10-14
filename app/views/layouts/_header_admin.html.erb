@@ -82,7 +82,12 @@
               <li><%= link_to t("account.blocked"), "#" %></li>
             </ul>
           </li>
-          <li><a href=""><i class="fa fa-home" aria-hidden="true"></i><%= t "back_home" %></a></li>
+          <li>
+            <%= link_to root_path do %>
+              <i class="fa fa-home" aria-hidden="true"></i>
+              <%= t "back_home" %>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
@@ -121,7 +126,10 @@
               <span class="badge bg-red pull-right"></span>
               <span><%= show_name %></span>
             </a>
-            <%= link_to(raw("<i class='fa fa-sign-out pull-right'></i>")<< t("logout"), "#", {class: "dropdown-item"}) %>
+            <%= link_to logout_path, method: :delete, class: "dropdown-item" do %>
+              <i class="fa fa-sign-out pull-right"></i>
+              <%= t"logout" %>
+            <% end %>
           </div>
         </li>
       </ul>
