@@ -1,2 +1,27 @@
 en:
   food_drink: "Foods and Drinks"
+  english: "English"
+  vietnamese: "Vietnamese"
+  welcome: "Welcome"
+  back_home: "Về trang chính"
+  manager_orders: "Manager orders"
+  status_order:
+    open: "Open"
+    confirmed: "Confirmed"
+    shipping: "Shipping"
+    completed: "Completed"
+    cancelled: "Cancelled"
+  manager_products: "Manager products"
+  product:
+    products: "Product"
+    all_products: "Products"
+    categories: "Categories"
+    add_product: "Add product"
+  manager_analytic: "Analytic"
+  analytic_week: "Week"
+  analytic_month: "Month"
+  logout: "Logout"
+  manager_accounts: "Manager accounts"
+  account:
+    accounts: "Accounts"
+    blocked: "Blocked"
