@@ -81,8 +81,8 @@ class Admin::OrdersController < Admin::AdminsController
 
   # load order details, total price
   def load_order_details
-      @order_details = @order.order_details.includes(:product)
-      @total = total_order @order_details
+    @order_details = @order.order_details.includes(:product)
+    @total = total_order @order_details
   end
 
   def load_orders status
