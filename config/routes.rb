@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     namespace :admin do
       root "admins#index"
+      resources :orders
     end
-
     root "static_pages#home"
     get :home, to: "static_pages#home"
     get :menu, to: "static_pages#menu"
@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     get :blog, to: "static_pages#blog"
     get :contact, to: "static_pages#contact"
     get :cart, to: "static_pages#cart"
-
     resources :users, only: %i(new create)
   end
 end
