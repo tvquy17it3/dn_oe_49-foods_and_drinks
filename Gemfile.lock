@@ -39,7 +39,7 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_storage_validations (0.9.5)
+    active_storage_validations (0.8.2)
       rails (>= 5.2.0)
     activejob (6.1.4.1)
       activesupport (= 6.1.4.1)
@@ -166,7 +166,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    libv8 (3.16.14.19-x86_64-linux)
+    libv8 (3.16.14.19)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -186,8 +186,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
-      racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     parallel (1.21.0)
     parser (3.0.2.0)
@@ -245,6 +243,9 @@ GEM
     ref (2.0.0)
     regexp_parser (2.1.1)
     rexml (3.2.5)
+    roo (2.8.3)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -293,6 +294,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    select2-rails (4.0.13)
     selenium-webdriver (4.0.3)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -340,10 +342,9 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-linux
 
 DEPENDENCIES
-  active_storage_validations
+  active_storage_validations (= 0.8.2)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   bootstrap (~> 4.1.0)
@@ -363,16 +364,19 @@ DEPENDENCIES
   listen (~> 3.3)
   mini_magick (= 4.9.5)
   mysql2
+  parser (~> 3.0, >= 3.0.2.0)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-i18n
   ransack (~> 2.4, >= 2.4.2)
+  roo (~> 2.8, >= 2.8.3)
   rspec-rails (~> 4.0.1)
   rubocop (~> 0.74.0)
   rubocop-checkstyle_formatter
   rubocop-rails (~> 2.3.2)
   sass-rails (>= 6)
+  select2-rails (~> 4.0, >= 4.0.13)
   selenium-webdriver
   spring
   therubyracer
@@ -386,4 +390,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.2.27
+   2.1.4

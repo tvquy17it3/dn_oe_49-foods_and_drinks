@@ -18,4 +18,12 @@ enabled: 1
 gravatar:
   size_50: 50
   size_80: 80
+  size_198: 198
 per_page_15: 15
+image:
+  size_1mb: 5
+  format: ["image/png", "image/jpg", "image/jpeg"]
+resize_images: "300x300!"
+resize_thumbnail: "80x80!"
+row_1: 1
+row_2: 2

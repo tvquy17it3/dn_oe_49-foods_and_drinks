@@ -4974,3 +4974,20 @@ ul.notifications {
 .title_cus{
   border: 0;
 }
+.style_image{
+  width: 198px;
+  object-fit: cover;
+}
+.style_link{
+  color: black;
+  font-size: 20px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+.error-style{
+  color: red
+}

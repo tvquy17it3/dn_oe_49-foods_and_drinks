@@ -1,0 +1,56 @@
+<h4 class="lable-form-index"><%= t "page_new_product_admin.excel"%></h4>
+<%= form_tag import_admin_products_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag t("page_new_product_admin.import"), class: "btn btn-success" %>
+<% end %>
+<h4><%= t "page_new_product_admin.or"%></h4>
+<button class="btn-show-hide"><%= t "page_new_product_admin.enter_manually"%></button>
+<div class="form-new">
+  <%= form_for [:admin, @product] do |f|%>
+    <div class="lable-form-index">
+      <%= f.label :thumbnail, t("page_create_product_admin.thumbnail") %><br>
+    </div>
+    <%= f.file_field :thumbnail %>
+    <div class="lable-form-index">
+      <%= f.label :name, t("page_create_product_admin.name") %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= show_message_for_field(@product, :name) %>
+    </div>
+    <div class="lable-form-index">
+      <%= f.label :price, t("page_create_product_admin.price") %>
+      <%= f.text_field :price, class: "form-control" %>
+      <%= show_message_for_field(@product, :price) %>
+    </div>
+    <div class="lable-form-index">
+      <%= f.label :description, t("page_create_product_admin.description") %>
+      <%= f.text_field :description, class: "form-control" %>
+      <%= show_message_for_field(@product, :description) %>
+    </div>
+    <div class="lable-form-index">
+      <%= f.label :quantity, t("page_create_product_admin.quantity") %>
+      <%= f.text_field :quantity, class: "form-control" %>
+      <%= show_message_for_field(@product, :quantity) %>
+    </div>
+    <div class="lable-form-index">
+      <%= f.label :status, t("page_create_product_admin.status") %>
+      <%= f.select :status, ["enabled", "disabled"]%>
+    </div>
+    <div class="lable-form-index">
+      <%= f.label :category_id, t("page_create_product_admin.category") %>
+      <%= f.collection_select :category_id, Category.all, :id, :name,
+        class: "form-control" %><br>
+      <%= f.fields_for :category do |cate| %>
+      <% end %>
+    </div>
+    <%= link_to_add_fields t("page_create_product_admin.add_category"), f, :category%><br>
+    <div class="lable-form-index">
+      <%= f.label :images, t("page_create_product_admin.images") %>
+    </div>
+    <%= f.file_field :images, multiple: true %>
+    <div class="submit-form-index">
+      <%= f.submit t("page_create_product_admin.submit"),
+          class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<%= javascript_pack_tag "custom" %>

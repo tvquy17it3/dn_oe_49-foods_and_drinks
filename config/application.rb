@@ -1,5 +1,6 @@
 require_relative "boot"
 require "rails/all"
+require "roo"
 
 Bundler.require(*Rails.groups)
 
@@ -11,3 +12,4 @@ module DnOe49FoodsAndDrinks
     config.i18n.default_locale = :vi
   end
 end
+
