@@ -8,7 +8,7 @@
     <% @products.each do |product| %>
       <li class="li_index">
         <%= gravatar_for product, size: Settings.gravatar.size_80 %>
-        <%= link_to product.name, "#", class: "index_product_name" %>
+        <%= link_to product.name, admin_product_path(product), class: "index_product_name" %>
       </li>
     <% end %>
     <%= paginate @products%>

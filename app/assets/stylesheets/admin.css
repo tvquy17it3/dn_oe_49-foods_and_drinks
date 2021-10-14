@@ -43,3 +43,24 @@
   margin-right: 50px;
   font-size: 20px;
 }
+
+.title-show{
+  text-align: center;
+  font-style: oblique;
+  color: black;
+}
+
+.tr-head-show{
+  color:black;
+  text-align: center;
+  font-size: 20px;
+}
+
+.th-head-show{
+  padding-left: 30px
+}
+
+.tr-body-show{
+  font-size: 15px;
+  text-align: center;
+}

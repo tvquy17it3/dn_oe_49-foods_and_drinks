@@ -57,7 +57,6 @@ User.all.each do |user|
                   description: description)
 end
 
-
 categories = Category.order(:created_at).take(6)
 30.times do |n|
   name = Faker::Name.name

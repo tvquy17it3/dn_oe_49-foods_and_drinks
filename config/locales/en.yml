@@ -128,3 +128,14 @@ en:
       previous: "‹ PREV"
       next: "NEXT ›"
       truncate: "…"
+  page_show_product_admin:
+    title: "Details Product"
+    table:
+      img: "Avatar"
+      name: "Name"
+      price: "Price"
+      description: "Description"
+      quantity: "Quantity"
+      status: "Status"
+      category: "Category"
+  show_product_fail: "Product Not Found"
