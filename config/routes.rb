@@ -3,5 +3,9 @@ Rails.application.routes.draw do
     namespace :admin do
       root "admins#index"
     end
+
+    root "static_pages#home"
+
+    resources :static_pages, only: %i(cart contact blog about home menu)
   end
 end
