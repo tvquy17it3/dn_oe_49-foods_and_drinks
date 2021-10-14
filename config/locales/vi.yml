@@ -132,6 +132,7 @@ vi:
     quantity_not_enough: "Số lượng sản phẩm không đủ: "
     history_orders: "Lịch sử đặt hàng"
     view_detail: "Xem chi tiết"
+    cancel: "Hủy đơn hàng"
   class:
     open: "badge-primary"
     confirmed: "badge-info"

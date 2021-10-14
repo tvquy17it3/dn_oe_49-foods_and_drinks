@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <!-- show image -->
+    <% if check_thumb? order_detail.product_thumbnail %>
+      <%= image_tag order_detail.product_thumbnail, class: "image-order" %>
+    <% else %>
+      <%= gravatar_for order_detail.product, size: Settings.gravatar.size_100 %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to product_path(order_detail.product) do %>
+      <span><%= order_detail.product_name %></span>
+    <% end %>
+  </td>
+  <td><%= order_detail.quantity %></td>
+  <td><%= number_to_currency(order_detail.price, locale: :vi) %></td>
+  <td>
+    <%= number_to_currency(order_detail.price*order_detail.quantity, locale: :vi) %>
+  </td>
+</tr>

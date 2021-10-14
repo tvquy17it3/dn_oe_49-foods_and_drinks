@@ -10,4 +10,8 @@ module ProductsHelper
   def check_sold_out? quantity
     quantity.zero?
   end
+
+  def check_thumb? thumbnail
+    thumbnail.attached?
+  end
 end
