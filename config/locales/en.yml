@@ -11,6 +11,7 @@ en:
     shipping: "Shipping"
     completed: "Completed"
     cancelled: "Cancelled"
+    disclaim: "Disclaim"
   manager_products: "Manager products"
   product:
     products: "Product"
@@ -104,12 +105,22 @@ en:
     total_price: "Total price"
     order_detail: "Order detail"
     total: "Total"
+    order_changed: "Order changed status"
+    change_status_to: "Change status to:"
+    order_person: "Order person:"
+    order_infor: "Order information:"
+    reject_success: "Reject success!"
+    reject_failed: "Failed!"
+    approve_failed: "Approve failed!"
+    approve_success: "Approve success!"
+    quantity_not_enough: "The number of products is not enough: "
   class:
     open: "badge-primary"
     confirmed: "badge-info"
     shipping: "badge-secondary"
     completed: "badge-success"
     cancelled: "badge-danger"
+    disclaim: "badge-danger"
   time:
     formats:
       own: "%H:%M:%S, %d %B %Y"
@@ -182,3 +193,19 @@ en:
     model_fail: "The field model is not correct"
     row_success: " successfully added"
     row: "Row: "
+  order_mailer:
+    hello: "Hi %{name},"
+    title:
+      open: "You have placed an order!"
+      confirmed: "Your order has been confirmed!"
+      shipping: "Your order is being shipped!"
+      completed: "The order has been completed!"
+      cancelled: "Your order has been cancelled!"
+      disclaim: "Your order has been disclaim!"
+    content:
+      open: "Thank you for ordering from us!. Information order:"
+      confirmed: "Thank you for ordering from us. Your order will be packed and shipped. Information order:"
+      shipping: "Thank you for ordering from us. Your order is being shipped. Information order:"
+      completed: "Thank you for ordering from us. Your order has been delivered. Information order:"
+      cancelled: "Thank you for ordering from us. Sorry your order has been cancelled. Information order:"
+      disclaim: "Thank you for ordering from us. Sorry your order has been disclaim. Information order:"

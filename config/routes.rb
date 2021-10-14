@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     namespace :admin do
       root "admins#index"
-      resources :orders
+      resources :orders do
+        member do
+          put :approve
+          put :reject
+        end
+      end
       get "order_status/:status", to: "orders#index_by_status", as: :status
       resources :products, except: %i(update delete) do
         collection {post :import}

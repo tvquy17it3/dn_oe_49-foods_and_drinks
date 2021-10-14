@@ -16,13 +16,18 @@
   <td>
     <%= link_to admin_order_path(order) do %>
       <button type="button" class="btn btn-primary btn-sm">
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <i class="fa fa-eye" aria-hidden="true"></i>
       </button>
     <% end %>
-    <% unless order.cancelled? %>
-      <%= link_to "#" do %>
+    <% if order.open? %>
+      <%= link_to approve_admin_order_path(order), method: :put, data: { confirm: t("you_sure") } do %>
+        <button type="button" class="btn btn-info btn-sm">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+      <% end %>
+      <%= link_to reject_admin_order_path(order), method: :put, data: { confirm: t("you_sure") } do %>
         <button type="button" class="btn btn-danger btn-sm">
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <i class="fa fa-times" aria-hidden="true"></i>
         </button>
       <% end %>
     <% end %>
