@@ -14,4 +14,13 @@ class Order < ApplicationRecord
     disclaim: Settings.disclaim
   }
   scope :recent_orders, ->{order created_at: :desc}
+
+  validates :name, :phone, :address, presence: true,
+    length: {maximum: Settings.length.max_250}
+  validates :total_price, presence: true,
+    numericality:
+    {
+      only_integer: false,
+      greater_than_or_equal_to: Settings.init_number
+    }
 end
