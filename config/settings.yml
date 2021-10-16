@@ -1,5 +1,7 @@
 length:
   min_5: 5
+  min_8: 8
+  max_100: 100
   max_250: 250
 show:
   show_5: 5

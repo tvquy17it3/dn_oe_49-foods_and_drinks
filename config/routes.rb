@@ -5,7 +5,13 @@ Rails.application.routes.draw do
     end
 
     root "static_pages#home"
+    get :home, to: "static_pages#home"
+    get :menu, to: "static_pages#menu"
+    get :about, to: "static_pages#about"
+    get :blog, to: "static_pages#blog"
+    get :contact, to: "static_pages#contact"
+    get :cart, to: "static_pages#cart"
 
-    resources :static_pages, only: %i(cart contact blog about home menu)
+    resources :users, only: %i(new create)
   end
 end

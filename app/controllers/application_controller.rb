@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  add_flash_types :info, :error, :warning
 
   private
 
