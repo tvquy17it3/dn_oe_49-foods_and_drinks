@@ -57,3 +57,18 @@ vi:
     template_made_by: " | Mẫu này được tạo bởi"
   categories:
     categories: "Thể loại"
+  sign_up:
+    sign_up: "Đăng Ký"
+    dont_account: "Bạn đã có tài khoản? "
+    log_in_now: " Đăng Nhập Ngay!"
+    sign_in_with_social_network: "Đăng nhập bằng mạng xã hội"
+    log_in_with_facebook: "Đăng nhập Facebook"
+    log_in_with_google: "Đăng nhập bằng Google+"
+    message_sign_up_success: "Đăng Ký Thành Công!"
+    message_sign_up_fail: "Đăng Ký Không Thành Công!"
+  form:
+    full_name: "Tên đầy đủ"
+    email: "E-mail"
+    password: "Mật Khẩu"
+    password_confirmation: "Xác Nhận Mật Khẩu"
+  message_user_nil: "Tài khoản không tồn tại!"
