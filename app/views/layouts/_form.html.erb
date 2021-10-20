@@ -1,24 +1,16 @@
 <%= form_for(@user) do |f| %>
 
   <%= f.text_field :name, class: "text", placeholder: t("form.full_name") %>
-  <% @user.errors.full_messages_for(:name).each do |msg| %>
-    <div class = "error"><%= msg %></div>
-  <% end %>
+  <%= show_message_for_field :name %>
 
   <%= f.email_field :email, class: "text", placeholder: t("form.email") %>
-  <% @user.errors.full_messages_for(:email).each do |msg| %>
-    <div class = "error"><%= msg %></div>
-  <% end %>
+  <%= show_message_for_field :email %>
 
   <%= f.password_field :password, class: "password", placeholder: t("form.password") %>
-  <% @user.errors.full_messages_for(:password).each do |msg| %>
-    <div class = "error"><%= msg %></div>
-  <% end %>
+  <%= show_message_for_field :password %>
 
   <%= f.password_field :password_confirmation, class: "password", placeholder: t("form.password_confirmation") %>
-  <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
-    <div class = "error"><%= msg %></div>
-  <% end %>
+  <%= show_message_for_field :password_confirmation %>
 
   <%= f.submit t("sign_up.sign_up").upcase, class: "btn btn-primary" %>
 <% end %>
