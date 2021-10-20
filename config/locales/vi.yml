@@ -86,6 +86,11 @@ vi:
     all: "Tất cả"
   you_sure: "Bạn có chắc chắn?"
   error_path: "Lỗi đường dẫn"
+  page_index_product_admin:
+    title: "Tất cả sản phẩm"
+    subject: "Tất Cả Sản Phẩm"
+    notification_nil: "Hiện tại không có sản phẩm nào"
+    button: "Thêm"
   views:
     pagination:
       first: "« ĐẦU TIÊN"

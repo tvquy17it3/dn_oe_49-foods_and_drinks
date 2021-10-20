@@ -48,6 +48,29 @@ User.all.each do |user|
     address: Faker::Address.full_address)
   end
   user.addresses.last.update_column :is_default, true
+
+# Fake category and product
+10.times do |n|
+  name = Faker::Name.name
+  description = "tuyet voi-#{n+1}"
+  Category.create!(name: name,
+                  description: description)
+end
+
+
+categories = Category.order(:created_at).take(6)
+30.times do |n|
+  name = Faker::Name.name
+  price = 10 + n
+  description = Faker::Lorem.sentence(word_count: 5)
+  status = true
+  categories.each do |category|
+    category.products.create!(name: name,
+              price: price,
+              description: description,
+              quantity: 3,
+              status: status)
+  end
 end
 
 # Fake orders
