@@ -41,7 +41,7 @@ en:
     template_made_by: " | This template is made with by "
   home_page:
     we_serve_food_drink: "We serve Food and Drink"
-    view_details: "Xem chi tiết"
+    view_details: "View details"
     ensure_the_quality: "Ensure the quality of Food and Drinks"
     free_shipping: "Free Shipping"
     on_order_over_$100: "On order over $100"
@@ -72,3 +72,24 @@ en:
     password: "Password"
     password_confirmation: "Confirm Password"
   message_user_nil: "Account does not exist!"
+  orders:
+    order_id: "Orders id"
+    fullname: "Full name"
+    phone: "Phone"
+    address: "Address"
+    total_price: "Total price"
+    status: "Status"
+    action: "Action"
+    order_cancelled: "Order cancelled"
+    update_fail: "Cancel fail!"
+    no_order: "No order"
+    all: "All"
+  you_sure: "Are you sure?"
+  error_path: "Error path"
+  views:
+    pagination:
+      first: "« FIRST"
+      last: "LAST »"
+      previous: "‹ PREV"
+      next: "NEXT ›"
+      truncate: "…"
