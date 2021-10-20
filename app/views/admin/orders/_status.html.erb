@@ -1,0 +1,5 @@
+<%= link_to t("status_order.open"), admin_status_path(status: :open), class: "btn btn-primary btn-sm" %>
+<%= link_to t("status_order.confirmed"), admin_status_path(status: :confirmed), class: "btn btn-info btn-sm" %>
+<%= link_to t("status_order.shipping"), admin_status_path(status: :shipping), class: "btn btn-secondary btn-sm" %>
+<%= link_to t("status_order.completed"), admin_status_path(status: :completed), class: "btn btn-success btn-sm" %>
+<%= link_to t("status_order.cancelled"), admin_status_path(status: :cancelled), class: "btn btn-danger btn-sm" %>

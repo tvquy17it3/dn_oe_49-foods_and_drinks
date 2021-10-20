@@ -1,11 +1,18 @@
 <tr>
+  <td><%= l order.created_at, format: :own %></td>
   <td><%= order.user_name %></td>
   <td><%= order.phone %></td>
   <td><%= order.address %></td>
   <td>
     <%= number_to_currency(order.total_price, locale: :vi) %>
   </td>
-  <td><%= order.status %></td>
+  <td>
+    <h5>
+      <span class="badge btn <%= t "class.#{order.status}" %>">
+        <%= t "status_order.#{order.status}" %>
+      </span>
+    </h5>
+  </td>
   <td>
     <%= link_to admin_order_path(order) do %>
       <button type="button" class="btn btn-primary btn-sm">
