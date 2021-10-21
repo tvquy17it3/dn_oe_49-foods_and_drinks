@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
   before_action :set_locale
   add_flash_types :info, :error, :warning
 

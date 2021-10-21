@@ -66,6 +66,16 @@ vi:
     log_in_with_google: "Đăng nhập bằng Google+"
     message_sign_up_success: "Đăng Ký Thành Công!"
     message_sign_up_fail: "Đăng Ký Không Thành Công!"
+  log_in:
+    log_in: "Đăng Nhập"
+    sign_up_now: "Đăng Ký Ngay!"
+    new_user: "Bạn là người dùng mới?"
+    invalid_email_or_password: "Email hoặc mật khẩu không hợp lệ!"
+    log_in_unsuccess: "Đăng nhập không thành công!"
+    remember_me: "Ghi Nhớ Tôi"
+  log_out: "Đăng Xuất"
+  profile: "Hồ Sơ"
+  setting: "Cài Đặt"
   form:
     full_name: "Tên đầy đủ"
     email: "E-mail"

@@ -151,7 +151,7 @@ button.social-signin.google {
   background: #DD4B39;
 }
 
-.error {
+.error-danger, .error {
   font-size: 14px;
   color: red;
   padding: 4px;
@@ -165,4 +165,21 @@ ul.error {
 
 #error_explanation {
   font-size: 15px;
+}
+
+.error-success {
+  font-size: 14px;
+  color: #d1e7dd;
+  padding: 4px;
+}
+
+.checkbox {
+  display: block;
+  margin: 13px 0;
+  padding: 4px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
 }

@@ -65,6 +65,24 @@
             <span class="icon-shopping_cart"></span>[0]
           </a>
         </li>
+        <li class="nav-icon dropdown">
+          <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
+            <img src="/assets/images/avatar-default.png" class="avatar-default">
+            <b class="caret"></b>
+          <% end %>
+          <ul class="dropdown-menu">
+            <% if logged_in? %>
+              <li><%= link_to t("profile"), "#", class: "dropdown-item" %></li>
+              <li><%= link_to t("setting"), "#", class: "dropdown-item" %></li>
+              <li>
+                <%= button_to t("log_out"), logout_path, method: :delete, class: "dropdown-item" %>
+              </li>
+            <% else %>
+              <li><%= link_to t("sign_up.sign_up"), new_user_path, class: "dropdown-item" %></li>
+              <li><%= link_to t("log_in.log_in"), login_path, class: "dropdown-item" %></li>
+            <% end %>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
