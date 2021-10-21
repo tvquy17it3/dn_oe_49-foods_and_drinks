@@ -26,3 +26,20 @@
   float: right;
   width: 150px;
 }
+
+.nav-md{
+  background-color: #F7F7F7;
+}
+
+.infor_order{
+  font-size: 18px;
+}
+
+.infor_col p{
+  font-weight: bold;
+}
+
+.total-order{
+  margin-right: 50px;
+  font-size: 20px;
+}

@@ -95,6 +95,13 @@ en:
     no_order: "No order"
     all: "All"
     created_order: "Order day"
+    product_name: "Product"
+    ordinal_number: "Ordinal number"
+    quantity: "Quantity"
+    price: "Price"
+    total_price: "Total price"
+    order_detail: "Order detail"
+    total: "Total"
   class:
     open: "badge-primary"
     confirmed: "badge-info"
