@@ -1,0 +1,47 @@
+<% provide :title, @product.name %>
+<h1 class="title-show">
+  <%= t "page_show_product_admin.title" %>
+</h1>
+<table class="table">
+  <thead>
+    <tr class="tr-head-show">
+      <th scope="col" class="th-show">
+        <%= t "page_show_product_admin.table.img" %>
+      </th>
+      <th scope="col" class="th-head-show">
+        <%= t "page_show_product_admin.table.name" %>
+      </th>
+      <th scope="col" class="th-head-show">
+        <%= t "page_show_product_admin.table.price" %>
+      </th>
+      <th scope="col" class="th-head-show">
+        <%= t "page_show_product_admin.table.description" %>
+      </th>
+      <th scope="col" class="th-head-show">
+        <%= t "page_show_product_admin.table.quantity" %>
+      </th>
+      <th scope="col" class="th-head-show">
+        <%= t "page_show_product_admin.table.status" %>
+      </th>
+      <th scope="col" class="th-head-show">
+        <%= t "page_show_product_admin.table.category" %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-body-show">
+      <th class="th-head-show">
+        <%= gravatar_for @product %>
+      </th>
+      <td class="th-head-show"><%= @product.name %></td>
+      <td class="th-head-show">
+        <%= number_to_currency(@product.price, locale: :vi)%>
+      </td>
+      <td class="th-head-show"><%= @product.description %></td>
+      <td class="th-head-show"><%= @product.quantity %></td>
+      <td class="th-head-show"><%= @product.status %></td>
+      <td class="th-head-show"><%= @product.category_name %></td>
+    </tr>
+  </tbody>
+</table>
+

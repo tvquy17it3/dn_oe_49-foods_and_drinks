@@ -128,3 +128,14 @@ vi:
       previous: "‹ LÙI"
       next: "TỚI ›"
       truncate: "…"
+  page_show_product_admin:
+    title: "Chi Tiết Sản Phẩm"
+    table:
+      img: "Ảnh Đại Diện"
+      name: "Tên"
+      price: "Giá"
+      description: "Mô Tả"
+      quantity: "Số Lượng"
+      status: "Trạng Thái"
+      category: "Loại"
+  show_product_fail: "Không Tìm Thấy Sản Phẩm"
