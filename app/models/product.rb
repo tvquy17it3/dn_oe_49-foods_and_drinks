@@ -25,7 +25,12 @@ class Product < ApplicationRecord
       maximum: Settings.length.max_250
     }
 
-  validates :price, presence: true, numericality: true
+  validates :price, presence: true,
+                    numericality:
+                    {
+                      only_integer: false,
+                      greater_than_or_equal_to: Settings.init_number
+                    }
 
   validates :description, presence: true,
     length: {
@@ -33,7 +38,12 @@ class Product < ApplicationRecord
       maximum: Settings.length.max_250
     }
 
-  validates :quantity, presence: true, numericality: {only_integer: true}
+  validates :quantity, presence: true,
+                       numericality:
+                       {
+                         only_integer: true,
+                         greater_than_or_equal_to: Settings.init_number
+                       }
 
   validates :images,
             content_type:
