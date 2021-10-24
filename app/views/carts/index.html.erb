@@ -1,0 +1,120 @@
+<div class="hero-wrap hero-bread" style="background-image: url(/assets/images/bg_1.jpg);">
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center">
+        <p class="breadcrumbs">
+          <span class="mr-2"><a href="index.html">
+            <%= t "home" %>
+          </a></span>
+          <span><%= t "cart" %></span>
+        </p>
+        <h1 class="mb-0 bread"><%= t "my_cart" %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section ftco-cart">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ftco-animate">
+        <div class="cart-list">
+          <table class="table">
+            <thead class="thead-primary">
+              <tr class="text-center">
+                <th>&nbsp;</th>
+                <th><%= t "name" %></th>
+                <th><%= t "price" %></th>
+                <th><%= t "quantity" %></th>
+                <th><%= t "total" %></th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <% @carts.each do |item| %>
+                  <tr>
+                    <td>
+                      <%= check_thumbnail? item%>
+                    </td>
+                    <td class="product-name">
+                      <%= item.name %>
+                    </td>
+                    <td class="product-price">
+                      <%= number_to_currency(item.price, locale: :vi) %>
+                    </td>
+                    <td class="product-name">
+                      <%= session[:cart]["#{item.id}"] %>
+                    </td>
+                    <td>
+                      <%= number_to_currency(item.price*session[:cart]["#{item.id}"], locale: :vi) %>
+                    </td>
+                    <td>
+                      <%= button_to t("delete") %>
+                    </td>
+                  </tr>
+                <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+        <div class="cart-total mb-3">
+          <h3><%= t "coupon_code" %></h3>
+          <p><%= t "coupon_code_many" %></p>
+          <form action="#" class="info">
+            <div class="form-group">
+              <label for=""><%= t "coupon_code" %></label>
+              <input type="text" class="form-control text-left px-3" placeholder="">
+            </div>
+          </form>
+        </div>
+        <p><a href="checkout.html" class="btn btn-primary py-3 px-4">
+          <%= t "apply_counpon" %>
+        </a></p>
+      </div>
+      <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+        <div class="cart-total mb-3">
+          <h3><%= t "estimate" %></h3>
+          <p><%= t "destination" %></p>
+          <form action="#" class="info">
+            <div class="form-group">
+              <label for=""><%= t "country" %></label>
+              <input type="text" class="form-control text-left px-3" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="country"><%= t "province" %></label>
+              <input type="text" class="form-control text-left px-3" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="country"><%= t "zip" %></label>
+              <input type="text" class="form-control text-left px-3" placeholder="">
+            </div>
+          </form>
+        </div>
+        <p><a href="checkout.html" class="btn btn-primary py-3 px-4">
+          <%= t "estimate" %>
+        </a></p>
+      </div>
+      <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+        <div class="cart-total mb-3">
+          <h3><%= t "card_total" %></h3>
+          <p class="d-flex">
+            <span><%= t "subtotal" %></span>
+            <span><%= number_to_currency(@total, locale: :vi) %></span>
+          </p>
+          <hr>
+          <p class="d-flex total-price">
+            <span><%= t "total" %></span>
+            <span><%= number_to_currency(@total, locale: :vi) %></span>
+          </p>
+        </div>
+        <p><a href="checkout.html" class="btn btn-primary py-3 px-4">
+          <%= t "process" %>
+        </a></p>
+      </div>
+    </div>
+  </div>
+</section>

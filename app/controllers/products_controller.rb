@@ -18,6 +18,10 @@ class ProductsController < ApplicationController
 
   def show; end
 
+  def new; end
+
+  def create; end
+
   private
 
   def load_product

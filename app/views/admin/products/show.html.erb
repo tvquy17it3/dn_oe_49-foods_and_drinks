@@ -43,7 +43,7 @@
       <td class="td-body-show"><%= @product.description %></td>
       <td class="td-body-show"><%= @product.quantity %></td>
       <td class="td-body-show"><%= @product.status %></td>
-      <td class="td-body-show"><%= @product.category.name %></td>
+      <td class="td-body-show"><%= @product.category_name %></td>
       <td>
         <%= link_to t("page_show_product_admin.edit"), edit_admin_product_path(@product),
           class: "btn btn-success td-action-body-show" %>

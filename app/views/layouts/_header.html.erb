@@ -47,9 +47,11 @@
         <li class="nav-item"><%= link_to t("blog"), blog_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to t("contact"), contact_path, class: "nav-link" %></li>
         <li class="nav-item cta cta-colored">
-          <a href="#" class="nav-link">
-            <span class="icon-shopping_cart"></span>[0]
-          </a>
+          <%= link_to carts_path,
+              class: "nav-link" do %>
+            <span class="icon-shopping_cart"></span>
+            <%= [@carts.count] if @carts.present? %>
+          <% end %>
         </li>
         <li class="nav-icon dropdown">
           <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
