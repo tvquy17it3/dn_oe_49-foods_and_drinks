@@ -6,16 +6,13 @@ class Admin::ProductsController < Admin::AdminsController
   end
 
   def import
-    @products = Product.import params[:file]
-    if @products
-      if @products.present?
-        flash[:info] = @products
-        redirect_to admin_products_url
-      end
+    arr_message = import_data params[:file]
+    if arr_message.empty?
+      flash[:success] = t "product_controller.msg_import_success"
     else
-      flash[:danger] = t "product_controller.msg_import_failer"
-      redirect_to new_admin_product_url
+      flash[:info] = arr_message
     end
+    redirect_to admin_products_url
   end
 
   def show
@@ -49,4 +46,21 @@ class Admin::ProductsController < Admin::AdminsController
                   :category_id, images: [],
                   category_attributes: [:name, :description])
   end
+
+  def import_data file
+    arr = []
+    spreadsheet = Roo::Spreadsheet.open file
+  rescue StandardError
+    arr.push(I18n.t("validate_excel.format"))
+    arr
+  else
+    header = spreadsheet.row(Settings.row_1)
+    if (header - Product.column_names).any?
+      arr.push(I18n.t("validate_excel.model_fail"))
+      return arr
+    else
+      Product.handle_check spreadsheet, header, arr
+    end
+  end
+
 end
