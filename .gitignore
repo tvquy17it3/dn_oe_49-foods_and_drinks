@@ -78,3 +78,6 @@ config/settings/*.local.yml
 config/environments/*.local.yml
 
 .nvmrc
+
+# Ignore application configuration
+/config/application.yml

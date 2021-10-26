@@ -1,0 +1,48 @@
+<p><%= t("order_mailer.hello", name: @order.user_name) %></p>
+<p><%= t("order_mailer.content.#{@order.status}") %></p></br>
+<div class="x_content">
+  <div class="infor_order row">
+    <div class="col-md-1 infor_col">
+      <p><b><%= t "orders.fullname" %>: </b><%= @order.user_name %></p>
+      <p><b><%= t "orders.address" %>: </b><%= @order.address %></p>
+      <p><b><%= t "orders.phone" %>: </b><%= @order.phone %></p>
+      <p><b><%= t "orders.status" %>: </b><%= t("status_order.#{@order.status}") %></p>
+      <p><b><%= t "orders.created_order" %>: </b><%= l @order.created_at, format: :own %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="table-responsive">
+        <table class="tabl">
+          <thead>
+            <tr>
+              <th><%= t "orders.ordinal_number" %></th>
+              <th><%= t "orders.product_name" %></th>
+              <th><%= t "orders.quantity" %></th>
+              <th><%= t "orders.price" %></th>
+              <th><%= t "orders.total_price" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order_details.each_with_index do |detail, i|%>
+              <tr>
+                <td><%= i+1 %></td>
+                <td><%= detail.product_name %></td>
+                <td><%= detail.quantity %></td>
+                <td><%= number_to_currency(detail.price, locale: :vi) %></td>
+                <td><%= number_to_currency(detail.price*detail.quantity, locale: :vi) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="justify-content-end">
+    <p>
+      <b><%= t "orders.total" %></b>:
+      <%= number_to_currency(@total, locale: :vi) %>
+    </p>
+  </div>
+</div>
