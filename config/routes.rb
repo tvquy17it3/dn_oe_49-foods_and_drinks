@@ -4,7 +4,9 @@ Rails.application.routes.draw do
       root "admins#index"
       resources :orders
       get "order_status/:status", to: "orders#index_by_status", as: :status
-      resources :products, only: %i(index show)
+      resources :products, except: %i(update delete) do
+        collection {post :import}
+      end
     end
 
     root "static_pages#home"

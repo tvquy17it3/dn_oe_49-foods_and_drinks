@@ -123,6 +123,8 @@ en:
     subject: "All Products"
     notification_nil: "There are currently no products"
     button: "Add"
+    price: "Price: "
+    quantity: "Quantity: "
   views:
     pagination:
       first: "« FIRST"
@@ -140,4 +142,43 @@ en:
       quantity: "Quantity"
       status: "Status"
       category: "Category"
+      action: "Action"
+    edit: "Edit"
+    delete: "Delete"
   show_product_fail: "Product Not Found"
+  images: "Images"
+  validate_image:
+    msg_format: "must be a valid image format"
+    msg_size: "should be less than 5MB"
+    msg_img_missing: "are missing!"
+  page_create_product_admin:
+    title: "Create Product"
+    thumbnail: "Thumbnail"
+    name: "Name"
+    price: "Price"
+    description: "Description"
+    quantity: "Quantity"
+    status: "Status"
+    category: "Category"
+    images: "Images"
+    submit: "Submit"
+    add_category: "Add Category Product"
+  page_category_field_admin:
+    remove: "Remove"
+    name: "Name"
+    description: "Description"
+  product_controller:
+    msg_import_success: "Products imported."
+    msg_import_failer: "Wrong format."
+    msg_create_success: "Create Successfully"
+    msg_create_fail: "Category Incorrect"
+    msg_show_failer: "Product Not Found."
+  page_new_product_admin:
+    excel: "Import from Excel file"
+    import: "Import"
+    enter_manually: "Enter manually"
+    or: "Or"
+  validate_excel:
+    model_fail: "The field model is not correct"
+    row_success: " successfully added"
+    row: "Row: "

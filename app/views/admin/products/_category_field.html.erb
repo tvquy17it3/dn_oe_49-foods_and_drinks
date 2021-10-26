@@ -1,0 +1,8 @@
+<fieldset>
+  <%= cate.label :name , t("page_category_field_admin.name")%>
+  <%= cate.text_field :name %>
+  <%= cate.label :description, t("page_category_field_admin.description")%>
+  <%= cate.text_field :description %>
+  <%= cate.hidden_field :_destroy %>
+  <%= link_to t("page_category_field_admin.remove"), "#", class: "remove-fields" %>
+</fieldset>

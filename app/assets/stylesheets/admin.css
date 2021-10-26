@@ -3,14 +3,17 @@
   color: black;
 }
 
-.ul_index{
-  padding-bottom: 30px;
+.container_index{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+  padding: 10px 0 20px 0;
 }
 
-.li_index{
-  overflow: auto;
-  padding: 10px 0;
-  border-bottom: 1px solid gray;
+.card-inside{
+  width: 200px;
+  border-radius: 10px;
 }
 
 .index_product_name{
@@ -57,10 +60,66 @@
 }
 
 .th-head-show{
-  padding-left: 30px
+  padding-left: 30px;
+  width: 10%;
+}
+.th-head-show-width40{
+  padding-left: 30px;
+  width: 40%;
+}
+
+.th-action{
+  width: 10%;
 }
 
 .tr-body-show{
   font-size: 15px;
   text-align: center;
+}
+
+.td-body-show{
+  padding-left: 30px
+}
+
+.td-name-body-show{
+  padding-left: 30px;
+  word-wrap: break-word;
+}
+
+.td-action-body-show{
+  width: 90px;
+}
+
+.container-images-show{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.image-show{
+  padding: 10px
+}
+
+.card-margin{
+  margin-left: 10px;
+}
+
+.card-p{
+  color: black;
+}
+
+.lable-form-index{
+  padding-top: 5px;
+  color: black;
+  font-size: 20px;
+}
+
+.submit-form-index{
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
+
+.form-new{
+  display: none;
 }

@@ -123,6 +123,8 @@ vi:
     subject: "Tất Cả Sản Phẩm"
     notification_nil: "Hiện tại không có sản phẩm nào"
     button: "Thêm"
+    price: "Giá: "
+    quantity: "Số Lượng: "
   views:
     pagination:
       first: "« ĐẦU TIÊN"
@@ -140,4 +142,43 @@ vi:
       quantity: "Số Lượng"
       status: "Trạng Thái"
       category: "Loại"
+      action: "Hành động"
+    edit: "Sửa"
+    delete: "Xóa"
   show_product_fail: "Không Tìm Thấy Sản Phẩm"
+  images: "Hình Ảnh"
+  validate_image:
+    msg_format: "phải là một định dạng hình ảnh hợp lệ"
+    msg_size: "phải nhỏ hơn 5MB"
+    msg_img_missing: "bị thiếu!"
+  page_create_product_admin:
+    title: "Tạo Sản Phẩm"
+    thumbnail: "Hình đại diện"
+    name: "Tên"
+    price: "Giá"
+    description: "Mô Tả"
+    quantity: "Số Lượng"
+    status: "Trạng Thái"
+    category: "Phân Loại"
+    images: "Hình ảnh"
+    submit: "Gửi đi"
+    add_category: "Thêm Loại Sản Phẩm"
+  page_category_field_admin:
+    remove: "Xóa"
+    name: "Tên"
+    description: "Mô Tả"
+  product_controller:
+    msg_import_success: "Thêm Sản Phẩm Thành Công."
+    msg_import_failer: "Sai định dạng."
+    msg_create_success: "Tạo Sản Phẩm Thành Công."
+    msg_create_fail: "Danh mục không chính xác."
+    msg_show_failer: "Không Tìm Thấy Sản Phẩm."
+  page_new_product_admin:
+    excel: "Nhập từ tệp Excel"
+    import: "Thêm"
+    enter_manually: "Nhập thủ công"
+    or: "Hoặc"
+  validate_excel:
+    model_fail: "Mô hình trường không đúng"
+    row_success: " thêm thành công"
+    row: "Hàng: "

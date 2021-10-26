@@ -2,46 +2,64 @@
 <h1 class="title-show">
   <%= t "page_show_product_admin.title" %>
 </h1>
-<table class="table">
+<table class="table table-bordered">
   <thead>
     <tr class="tr-head-show">
-      <th scope="col" class="th-show">
+      <th class="th-head-show" >
         <%= t "page_show_product_admin.table.img" %>
       </th>
-      <th scope="col" class="th-head-show">
+      <th class="th-head-show" >
         <%= t "page_show_product_admin.table.name" %>
       </th>
-      <th scope="col" class="th-head-show">
+      <th class="th-head-show">
         <%= t "page_show_product_admin.table.price" %>
       </th>
-      <th scope="col" class="th-head-show">
+      <th class="th-head-show-width40" >
         <%= t "page_show_product_admin.table.description" %>
       </th>
-      <th scope="col" class="th-head-show">
+      <th class="th-head-show" >
         <%= t "page_show_product_admin.table.quantity" %>
       </th>
-      <th scope="col" class="th-head-show">
+      <th class="th-head-show">
         <%= t "page_show_product_admin.table.status" %>
       </th>
-      <th scope="col" class="th-head-show">
+      <th class="th-head-show">
         <%= t "page_show_product_admin.table.category" %>
       </th>
+      <th colspan="2" class="th-action"><%= t "page_show_product_admin.table.action"%></th>
     </tr>
   </thead>
   <tbody>
     <tr class="tr-body-show">
-      <th class="th-head-show">
-        <%= gravatar_for @product %>
-      </th>
-      <td class="th-head-show"><%= @product.name %></td>
-      <td class="th-head-show">
-        <%= number_to_currency(@product.price, locale: :vi)%>
+      <td class="td-body-show">
+        <% if check_image? %>
+          <%= image_tag @product.display_thumbnail %>
+        <% else %>
+          <%= gravatar_for @product, size: Settings.size_80 %>
+        <% end %>
       </td>
-      <td class="th-head-show"><%= @product.description %></td>
-      <td class="th-head-show"><%= @product.quantity %></td>
-      <td class="th-head-show"><%= @product.status %></td>
-      <td class="th-head-show"><%= @product.category_name %></td>
+      <td class="td-name-body-show"><%= @product.name %></td>
+      <td class="td-body-show"><%= @product.price %></td>
+      <td class="td-body-show"><%= @product.description %></td>
+      <td class="td-body-show"><%= @product.quantity %></td>
+      <td class="td-body-show"><%= @product.status %></td>
+      <td class="td-body-show"><%= @product.category.name %></td>
+      <td>
+        <%= link_to t("page_show_product_admin.edit"), "#",
+          class: "btn btn-success td-action-body-show"%>
+      </td>
+      <td>
+        <%= button_to t("page_show_product_admin.delete"), "#",
+          class: "btn btn-danger td-action-body-show"%>
+      </td>
     </tr>
   </tbody>
 </table>
-
+<h4><%= t "page_show_product_admin.images" %></h4>
+<div class="container-images-show">
+  <% (0...@product.images.count).each do |img| %>
+    <div class="image-show">
+      <%= image_tag (@product.display_image(img)) if @product.images.attached? %>
+    </div>
+  <% end %>
+</div>
