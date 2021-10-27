@@ -203,6 +203,9 @@ en:
     msg_create_success: "Create Successfully"
     msg_create_fail: "Category Incorrect"
     msg_show_failer: "Product Not Found."
+    msg_delete_success: "Product deleted"
+    msg_delete_change: "Since the product is in the order, only the status of the product can be changed"
+    msg_no_delete: "Product cannot be deleted"
   page_new_product_admin:
     excel: "Import from Excel file"
     import: "Import"
@@ -213,6 +216,7 @@ en:
     row_success: " successfully added"
     row: "Row: "
     format: "Please import the Excel file"
+    check_status: " Wrong status"
   order_mailer:
     hello: "Hi %{name},"
     title:
@@ -242,3 +246,5 @@ en:
     msg_update_fail: "Update fail"
   not_permission: "Not permission!"
   dashboard: "Dashboard"
+  confirm: "You sure?"
+  delete: "Delete"

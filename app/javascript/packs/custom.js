@@ -2,7 +2,7 @@ $('.new_product').on('click', '.remove-fields', function(event) {
    $(this).prev('input[type=hidden]').val('1');
    $(this).closest('fieldset').hide();
    return event.preventDefault();
-  });
+});
 $('.new_product').on('click', '.add_fields', function(event) {
    var regexp, time, count=0;
    fieldsets = $('fieldset').each(function(){

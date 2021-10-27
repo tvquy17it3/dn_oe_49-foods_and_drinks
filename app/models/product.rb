@@ -55,15 +55,13 @@ class Product < ApplicationRecord
     (Settings.row_2..spreadsheet.last_row).each do |i|
       row = [header, spreadsheet.row(i)].transpose.to_h
       begin
-        arr.push(i) unless Product.create! row
+        check_create row, arr, i
       rescue ActiveRecord::RecordInvalid => e
         arr.push(I18n.t("validate_excel.row") + "#{i}  #{e.message}")
       end
       return arr if i == spreadsheet.last_row
     end
   end
-
-  private
 
   def validate_nested attribute
     return true if attribute[:name].blank?
@@ -77,5 +75,23 @@ class Product < ApplicationRecord
       break
     end
     dem != 0
+  end
+
+  class << self
+    private
+
+    def check_create row, arr, i
+      if check_status? row["status"]
+        arr.push(i) unless Product.create! row
+      else
+        arr.push(I18n.t("validate_excel.row") + i.to_s +
+                 I18n.t("validate_excel.check_status"))
+      end
+    end
+
+    def check_status? status
+      Product.statuses.include?(status) ||
+        Product.statuses.values.include?(status)
+    end
   end
 end

@@ -5,8 +5,10 @@
   <div>
     <% if check_image? %>
       <%= image_tag @product.display_thumbnail %>
-      <%= link_to "delete",purge_thumbnail_admin_product_path(@product),method: :delete, data: {confirm: "You sure?"},
-        class: "btn btn-success form-update-delete" %>
+      <%= link_to t("delete"),
+          purge_thumbnail_admin_product_path(@product),
+          method: :delete, data: {confirm: t("confirm")},
+          class: "btn btn-success form-update-delete" %>
     <% else %>
       <%= gravatar_for @product, size: Settings.size_80 %>
     <% end %>
@@ -50,9 +52,9 @@
       <% @product.images.each do |img| %>
         <div class="images-update">
           <%= image_tag img.variant(resize_to_limit: [300,300]) %>
-          <%= link_to "delete", purge_images_admin_product_path(img),
-            method: :delete, data: {confirm: "You sure?"},
-            class: "btn btn-success form-update-delete" %>
+          <%= link_to t("delete"), purge_images_admin_product_path(img),
+              method: :delete, data: {confirm: t("confirm")},
+              class: "btn btn-success form-update-delete" %>
         </div>
       <% end %>
     <% end %>
@@ -63,4 +65,3 @@
         class: "btn btn-primary" %>
   </div>
 <% end %>
-<%= javascript_pack_tag :custom %>
