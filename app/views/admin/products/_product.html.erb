@@ -7,7 +7,7 @@
           class: "style_image"), admin_product_path(product) %><br>
     <% end %>
     <div class="card-text card-margin">
-      <%= link_to product.name, admin_product_path(product), class: "style_link"%>
+      <%= link_to product.name, admin_product_path(product), class: "style_link" %>
       <p class="card-p"><%= t "page_index_product_admin.price" %><%= link_to product.price, "#", class: "card-p" %></p>
       <p class="card-p"><%= t "page_index_product_admin.quantity" %><%= link_to product.quantity, "#", class: "card-p" %></p>
     </div>

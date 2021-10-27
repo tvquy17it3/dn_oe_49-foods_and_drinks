@@ -26,7 +26,7 @@
       <th class="th-head-show">
         <%= t "page_show_product_admin.table.category" %>
       </th>
-      <th colspan="2" class="th-action"><%= t "page_show_product_admin.table.action"%></th>
+      <th colspan="2" class="th-action"><%= t "page_show_product_admin.table.action" %></th>
     </tr>
   </thead>
   <tbody>
@@ -45,12 +45,12 @@
       <td class="td-body-show"><%= @product.status %></td>
       <td class="td-body-show"><%= @product.category.name %></td>
       <td>
-        <%= link_to t("page_show_product_admin.edit"), "#",
-          class: "btn btn-success td-action-body-show"%>
+        <%= link_to t("page_show_product_admin.edit"), edit_admin_product_path(@product),
+          class: "btn btn-success td-action-body-show" %>
       </td>
       <td>
         <%= button_to t("page_show_product_admin.delete"), "#",
-          class: "btn btn-danger td-action-body-show"%>
+          class: "btn btn-danger td-action-body-show" %>
       </td>
     </tr>
   </tbody>

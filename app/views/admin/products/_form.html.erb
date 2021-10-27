@@ -1,12 +1,12 @@
-<h4 class="lable-form-index"><%= t "page_new_product_admin.excel"%></h4>
+<h4 class="lable-form-index"><%= t "page_new_product_admin.excel" %></h4>
 <%= form_tag import_admin_products_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag t("page_new_product_admin.import"), class: "btn btn-success" %>
 <% end %>
-<h4><%= t "page_new_product_admin.or"%></h4>
-<button class="btn-show-hide"><%= t "page_new_product_admin.enter_manually"%></button>
+<h4><%= t "page_new_product_admin.or" %></h4>
+<button class="btn-show-hide"><%= t "page_new_product_admin.enter_manually" %></button>
 <div class="form-new">
-  <%= form_for [:admin, @product] do |f|%>
+  <%= form_for [:admin, @product] do |f| %>
     <div class="lable-form-index">
       <%= f.label :thumbnail, t("page_create_product_admin.thumbnail") %><br>
     </div>
@@ -33,7 +33,7 @@
     </div>
     <div class="lable-form-index">
       <%= f.label :status, t("page_create_product_admin.status") %>
-      <%= f.select :status, ["enabled", "disabled"]%>
+      <%= f.select :status, Product.statuses.keys %>
     </div>
     <div class="lable-form-index">
       <%= f.label :category_id, t("page_create_product_admin.category") %>
