@@ -232,3 +232,7 @@ en:
           attributes:
             category:
               required: "does not exist"
+  update_product:
+    title: "Update Product"
+    msg_update_success: "Update successfully"
+    msg_update_fail: "Update fail"

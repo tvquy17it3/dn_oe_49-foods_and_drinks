@@ -9,8 +9,12 @@ Rails.application.routes.draw do
         end
       end
       get "order_status/:status", to: "orders#index_by_status", as: :status
-      resources :products, except: %i(update delete) do
+      resources :products, except: :delete do
         collection {post :import}
+        member do
+          delete :purge_images
+          delete :purge_thumbnail
+        end
       end
     end
 

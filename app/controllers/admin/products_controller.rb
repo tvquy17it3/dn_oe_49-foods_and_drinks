@@ -1,4 +1,6 @@
 class Admin::ProductsController < Admin::AdminsController
+  before_action :load_product, only: %i(show edit update purge_thumbnail)
+
   def index
     @products = Product.recent_products
                        .page(params[:page])
@@ -15,17 +17,34 @@ class Admin::ProductsController < Admin::AdminsController
     redirect_to admin_products_url
   end
 
-  def show
-    @product = Product.find_by id: params[:id]
-    return if @product
-
-    flash[:danger] = t "product_controller.msg_show_failer"
-    redirect_to admin_products_path
-  end
+  def show; end
 
   def new
     @product = Product.new
     @product.build_category
+  end
+
+  def purge_thumbnail
+    @product.thumbnail.purge
+    redirect_back fallback_location: admin_product_path(@product)
+  end
+
+  def purge_images
+    imge = ActiveStorage::Attachment.find_by id: params[:id]
+    imge.purge
+    redirect_back fallback_location: admin_root_path
+  end
+
+  def edit; end
+
+  def update
+    if @product.update(product_params)
+      flash[:success] = t "update_product.msg_update_success"
+      redirect_to admin_product_path(@product)
+    else
+      flash[:danger] = t "update_product.msg_update_fail"
+      render :edit
+    end
   end
 
   def create
@@ -42,9 +61,17 @@ class Admin::ProductsController < Admin::AdminsController
 
   def product_params
     params.require(:product)
-          .permit(:thumbnail, :name, :price, :description, :quantity, :status,
-                  :category_id, images: [],
+          .permit(:thumbnail, :name, :price, :description, :quantity,
+                  :status, :category_id, images: [],
                   category_attributes: [:name, :description])
+  end
+
+  def load_product
+    @product = Product.find_by id: params[:id]
+    return if @product
+
+    flash[:danger] = t "product_controller.msg_show_failer"
+    redirect_to admin_products_path
   end
 
   def import_data file

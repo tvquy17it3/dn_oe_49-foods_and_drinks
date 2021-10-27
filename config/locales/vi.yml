@@ -232,3 +232,7 @@ vi:
           attributes:
             category:
               required: "không tồn tại"
+  update_product:
+    title: "Cập nhật sản phẩm"
+    msg_update_success: "Cập nhật thành công"
+    msg_update_fail: "Cập nhật thất bại"

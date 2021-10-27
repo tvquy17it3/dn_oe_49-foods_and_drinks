@@ -1,0 +1,66 @@
+<%= form_for [:admin, @product] do |f| %>
+  <div class="lable-form-index" >
+    <%= f.label :thumbnail, t("page_create_product_admin.thumbnail") %><br>
+  </div>
+  <div>
+    <% if check_image? %>
+      <%= image_tag @product.display_thumbnail %>
+      <%= link_to "delete",purge_thumbnail_admin_product_path(@product),method: :delete, data: {confirm: "You sure?"},
+        class: "btn btn-success form-update-delete" %>
+    <% else %>
+      <%= gravatar_for @product, size: Settings.size_80 %>
+    <% end %>
+  </div>
+  <%= f.file_field :thumbnail %>
+  <div class="lable-form-index">
+    <%= f.label :name, t("page_create_product_admin.name") %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= show_message_for_field(@product, :name) %>
+  </div>
+  <div class="lable-form-index">
+    <%= f.label :price, t("page_create_product_admin.price") %>
+    <%= f.text_field :price, class: "form-control" %>
+    <%= show_message_for_field(@product, :price) %>
+  </div>
+  <div class="lable-form-index">
+    <%= f.label :description, t("page_create_product_admin.description") %>
+    <%= f.text_field :description, class: "form-control" %>
+    <%= show_message_for_field(@product, :description) %>
+  </div>
+  <div class="lable-form-index">
+    <%= f.label :quantity, t("page_create_product_admin.quantity") %>
+    <%= f.text_field :quantity, class: "form-control" %>
+    <%= show_message_for_field(@product, :quantity) %>
+  </div>
+  <div class="lable-form-index">
+    <%= f.label :status, t("page_create_product_admin.status") %>
+    <%= f.select :status, Product.statuses.keys %>
+  </div>
+  <div class="lable-form-index">
+    <%= f.label :category_id, t("page_create_product_admin.category") %>
+    <%= f.collection_select :category_id, Category.all, :id, :name,
+      class: "form-control" %><br>
+    <%= f.fields_for :category do |cate| %>
+    <% end %>
+    <%= link_to_add_fields t("page_create_product_admin.add_category"), f, :category %><br>
+  </div>
+  <div class="lable-form-index">
+    <%= f.label :images, t("page_create_product_admin.images") %>
+    <% if @product.images.attached? %>
+      <% @product.images.each do |img| %>
+        <div class="images-update">
+          <%= image_tag img.variant(resize_to_limit: [300,300]) %>
+          <%= link_to "delete", purge_images_admin_product_path(img),
+            method: :delete, data: {confirm: "You sure?"},
+            class: "btn btn-success form-update-delete" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.file_field :images, multiple: true %>
+  <div class="submit-form-index">
+    <%= f.submit t("page_create_product_admin.submit"),
+        class: "btn btn-primary" %>
+  </div>
+<% end %>
+<%= javascript_pack_tag :custom %>
