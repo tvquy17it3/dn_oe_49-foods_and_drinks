@@ -28,3 +28,4 @@ resize_images: "300x300!"
 resize_thumbnail: "80x80!"
 row_1: 1
 row_2: 2
+out_of_stock: 0

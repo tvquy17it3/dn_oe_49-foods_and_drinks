@@ -1,0 +1,82 @@
+<%= stylesheet_link_tag :product_detail %>
+<main role="main">
+  <div class="container mt-4">
+    <% if @product.enabled? %>
+      <div class="card">
+        <div class="container-fliud">
+          <div class="wrapper row">
+            <div class="preview col-md-6">
+              <div class="preview-pic tab-content">
+                <div class="tab-pane active" id="pic-1">
+                  <% if check_image? %>
+                    <%= image_tag @product.thumbnail %>
+                  <% else %>
+                    <%= gravatar_for @product, size: Settings.size_80 %>
+                  <% end %>
+                </div>
+                <ul class="preview-thumbnail nav nav-tabs">
+                  <% (0...@product.images.count).each do |img| %>
+                    <li class="active">
+                      <%= image_tag @product.display_image(img) if @product.images.attached? %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <div class="details col-md-6">
+              <h3 class="product-title"><%= @product.name %></h3>
+              <div class="rating">
+                <span class="fa fa-star">
+                  <%= t "product.detail.category" %>
+                  <%= @product.category_name %>
+                </span>
+              </div>
+              <h5 class="price">
+                <%= t "product.detail.price" %>
+                <span><%= number_to_currency(@product.price, locale: :vi) %></span>
+              </h5>
+                <% if @product.quantity > Settings.out_of_stock %>
+                  <%= form_tag "#" do %>
+                    <%= hidden_field_tag :product_id, @product.id %>
+                    <h6><%= t "product.detail.quantity" %></h6>
+                    <div class="form-group">
+                      <%= number_field_tag :quantity, 1,
+                          class: "form-control prd-quantity",
+                          min: 1, max: @product.quantity
+                      %>
+                    </div>
+                    <div class="action">
+                      <%= submit_tag t("product.detail.add_to_cart"), class: "add-to-cart btn btn-default" %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <span class="review-no">
+                    <%= t "product.detail.status" %>
+                    <span class="badge btn btn-danger">
+                      <%= t "product.detail.out_of_stock" %>
+                    </span>
+                  </span>
+                <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="container-fluid">
+          <h3><%= t "product.detail.description" %></h3>
+          <div class="row">
+            <div class="col">
+              <%= @product.description %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="card">
+        <div class="container-fluid">
+          <h3><%= t "product.detail.product_disabled" %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>
