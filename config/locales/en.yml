@@ -202,6 +202,7 @@ en:
     model_fail: "The field model is not correct"
     row_success: " successfully added"
     row: "Row: "
+    format: "Please import the Excel file"
   order_mailer:
     hello: "Hi %{name},"
     title:
@@ -218,3 +219,10 @@ en:
       completed: "Thank you for ordering from us. Your order has been delivered. Information order:"
       cancelled: "Thank you for ordering from us. Sorry your order has been cancelled. Information order:"
       disclaim: "Thank you for ordering from us. Sorry your order has been disclaim. Information order:"
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            category:
+              required: "does not exist"

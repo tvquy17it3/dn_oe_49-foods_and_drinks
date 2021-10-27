@@ -202,6 +202,7 @@ vi:
     model_fail: "Mô hình trường không đúng"
     row_success: " thêm thành công"
     row: "Hàng: "
+    format: "Hãy nhập file Excel"
   order_mailer:
     hello: "Chào %{name},"
     title:
@@ -218,3 +219,10 @@ vi:
       completed: "Cảm ơn bạn đã đặt hàng ở chúng tôi. Đơn hàng của bạn đã hoàn thành. Thông tin đơn hàng:"
       cancelled: "Cảm ơn bạn đã đặt hàng ở chúng tôi. Rất tiếc đơn hàng của bạn đã bị hủy. Thông tin đơn hàng:"
       disclaim: "Cảm ơn bạn đã đặt hàng ở chúng tôi. Rất tiếc đơn hàng của bạn đã bị hủy. Thông tin đơn hàng:"
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            category:
+              required: "không tồn tại"

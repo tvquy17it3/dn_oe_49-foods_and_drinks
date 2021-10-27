@@ -16,8 +16,6 @@ class Product < ApplicationRecord
 
   delegate :name, to: :category, prefix: true
 
-  validates :category, presence: true
-
   validates :name, presence: true,
     length: {
       minimum: Settings.length.min_5,
@@ -54,27 +52,16 @@ class Product < ApplicationRecord
     thumbnail.variant(resize: Settings.resize_thumbnail).processed
   end
 
-  def self.import file
-    spreadsheet = Roo::Spreadsheet.open file
-  rescue StandardError
-    nil
-  else
-      arr = []
-      header = spreadsheet.row(Settings.row_1)
-      unless (header - self.column_names).empty?
-        arr.push(I18n.t("validate_excel.model_fail"))
-        return arr
-      else
-        (Settings.row_2..spreadsheet.last_row).each do |i|
-          row = [header, spreadsheet.row(i)].transpose.to_h
-          begin
-            arr.push(i) unless create! row
-          rescue ActiveRecord::RecordInvalid => e
-            arr.push(I18n.t("validate_excel.row") + "#{i}  #{e.message}")
-          end
-          return arr if i == spreadsheet.last_row
-        end
+  def self.handle_check spreadsheet, header, arr
+    (Settings.row_2..spreadsheet.last_row).each do |i|
+      row = [header, spreadsheet.row(i)].transpose.to_h
+      begin
+        arr.push(i) unless Product.create! row
+      rescue ActiveRecord::RecordInvalid => e
+        arr.push(I18n.t("validate_excel.row") + "#{i}  #{e.message}")
       end
+      return arr if i == spreadsheet.last_row
+    end
   end
 
   private
@@ -84,11 +71,11 @@ class Product < ApplicationRecord
 
     dem = 0
     Category.pluck(:name, :description).each do |item|
-      if attribute[:name] == item[0] &&
-        attribute[:description] == item[1]
-          dem = 1
-          break
-      end
+      next unless attribute[:name] == item[0] &&
+                  attribute[:description] == item[1]
+
+      dem = 1
+      break
     end
     dem != 0
   end
