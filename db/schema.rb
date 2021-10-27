@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_153537) do
   end
 
   create_table "orders", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
     t.decimal "total_price", precision: 10
     t.string "phone", null: false
     t.string "address", null: false

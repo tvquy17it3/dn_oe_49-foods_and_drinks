@@ -4,25 +4,35 @@
       <div class="card">
         <div class="card-body p-0">
           <div class="row pb-5 p-5">
-            <div class="col-md-2">
-              <p class="mb-1"><%= t "orders.fullname" %>:</p>
-              <p class="mb-1"><%= t "orders.address" %>:</p>
-              <p class="mb-1"><%= t "orders.phone" %>:</p>
-              <p class="mb-1"><%= t "orders.created_order" %>:</p>
-              <p class="mb-1"><%= t "orders.status" %>:</p>
-            </div>
-            <div class="col-md-4">
-              <p class="mb-1"><%= @order.user_name %></p>
-              <p class="mb-1"><%= @order.phone %></p>
-              <p class="mb-1"><%= @order.address %></p>
-              <p class="mb-1"><%= l @order.created_at, format: :own %></p>
-              <p class="mb-1">
-                <span class="badge <%= t "class.#{@order.status}" %>">
-                  <%= t("status_order.#{@order.status}") %>
-                </span>
-              </p>
-            </div>
-            <div class="col-md-6 text-right">
+            <table>
+              <tr>
+                <td class="col-md-3"><%= t "orders.fullname" %>:</td>
+                <td class="col-md-6"><%= @order.name %></td>
+              </tr>
+              <tr>
+                <td class="col-md-3"><%= t "orders.phone" %>:</td>
+                <td class="col-md-6"><%= @order.phone %></td>
+              </tr>
+              <tr>
+                <td class="col-md-3"><%= t "orders.address" %>:</td>
+                <td class="col-md-6" rowspan="2"><%= @order.address %></td>
+              </tr>
+              <tr>
+                <td class="col-md-3">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="col-md-3"><%= t "orders.created_order" %>:</td>
+                <td class="col-md-6"><%= l @order.created_at, format: :own %></td>
+              </tr>
+                <td class="col-md-3"><%= t "orders.status" %>:</td>
+                <td class="col-md-6">
+                  <span class="badge <%= t "class.#{@order.status}" %>">
+                    <%= t("status_order.#{@order.status}") %>
+                  </span>
+                </td>
+              </tr>
+            </table>
+            <div class="col-md-3 text-right">
               <% if @order.open? %>
                 <%= link_to cancel_user_order_path(current_user, @order),
                     method: :put, data: { confirm: t("you_sure") } do

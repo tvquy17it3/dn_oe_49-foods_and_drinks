@@ -8,6 +8,35 @@ class OrdersController < ApplicationController
                           .per(Settings.show_5)
   end
 
+  def new
+    if session[:cart].blank?
+      flash[:danger] = t "cart_empty"
+      redirect_to root_path
+    else
+      qtity = session[:cart]
+      @carts = Product.find_products_cart(qtity.keys)
+      @total = total_money @carts
+    end
+  end
+
+  def create
+    ActiveRecord::Base.transaction do
+      qtity = session[:cart]
+      @carts = Product.find_products_cart(qtity.keys)
+      @total = total_money @carts
+      save_address
+      order = save_order(@add)
+      save_order_details order
+      order.save!
+      session.delete :cart
+      flash[:success] = t "orders.order_success"
+    end
+  rescue ActiveRecord::RecordInvalid
+    flash[:danger] = t "orders.order_fail"
+  ensure
+    redirect_to user_orders_path(current_user)
+  end
+
   def show; end
 
   def cancel
@@ -46,7 +75,53 @@ class OrdersController < ApplicationController
     end
   end
 
+  def total_money arr
+    arr.reduce(0) do |sum, item|
+      sum + session[:cart][item.id.to_s] * item.price
+    end
+  end
+
   def send_mail
     UserMailer.order_status(@order, @order_details, @total).deliver_now
+  end
+
+  def save_address
+    if params[:address].present?
+      address_arr = params[:address].split("_")
+      @add = current_user.addresses.create!(
+        name: address_arr[0],
+        phone: address_arr[1],
+        address: address_arr[2],
+        user_id: current_user.id
+      )
+    else
+      @add = Address.find_by(id: params[:address_id])
+    end
+  end
+
+  def save_order add
+    current_user.orders.build(
+      name: add.name,
+      phone: add.phone,
+      address: add.address,
+      total_price: @total,
+      address_id: add.id
+    )
+  end
+
+  def save_order_details order
+    qtity = session[:cart]
+    qtity.each do |product_id, quantity|
+      next if product_id.nil?
+
+      product = Product.find_by(id: product_id)
+      order.order_details.build(
+        quantity: quantity,
+        price: product.price,
+        product_id: product_id
+      )
+      remaining_quantity = product.quantity - quantity
+      product.update!(quantity: remaining_quantity)
+    end
   end
 end

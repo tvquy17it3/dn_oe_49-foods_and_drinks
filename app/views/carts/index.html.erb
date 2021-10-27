@@ -111,9 +111,9 @@
             <span><%= number_to_currency(@total, locale: :vi) %></span>
           </p>
         </div>
-        <p><a href="checkout.html" class="btn btn-primary py-3 px-4">
-          <%= t "process" %>
-        </a></p>
+        <p>
+          <%= link_to t("orders.order"), new_order_path, class: "btn btn-primary py-3 px-4" %>
+        </p>
       </div>
     </div>
   </div>
