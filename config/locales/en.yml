@@ -3,7 +3,8 @@ en:
   english: "English"
   vietnamese: "Vietnamese"
   welcome: "Welcome"
-  back_home: "Về trang chính"
+  back_home: "Back home"
+  please_login: "Please login"
   manager_orders: "Manager orders"
   status_order:
     open: "Open"
@@ -129,6 +130,8 @@ en:
     approve_failed: "Approve failed!"
     approve_success: "Approve success!"
     quantity_not_enough: "The number of products is not enough: "
+    history_orders: "History orders"
+    view_detail: "View detail"
   class:
     open: "badge-primary"
     confirmed: "badge-info"

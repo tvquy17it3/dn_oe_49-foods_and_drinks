@@ -4,6 +4,7 @@ vi:
   vietnamese: "Tiếng Việt"
   welcome: "Xin chào"
   back_home: "Về trang chính"
+  please_login: "Vui lòng đăng nhập!"
   manager_orders: "Quản lý đơn hàng"
   status_order:
     open: "Chờ xác nhận"
@@ -129,6 +130,8 @@ vi:
     approve_failed: "Lỗi!"
     approve_success: "Thành công!"
     quantity_not_enough: "Số lượng sản phẩm không đủ: "
+    history_orders: "Lịch sử đặt hàng"
+    view_detail: "Xem chi tiết"
   class:
     open: "badge-primary"
     confirmed: "badge-info"
