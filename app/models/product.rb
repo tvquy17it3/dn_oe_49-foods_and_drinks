@@ -1,15 +1,14 @@
 class Product < ApplicationRecord
   belongs_to :category
-
   has_many :order_details, dependent: :destroy
   has_many :orders, through: :order_details
-
   has_one_attached :thumbnail
   has_many_attached :images
 
   accepts_nested_attributes_for :category, allow_destroy: true,
                                            reject_if: :validate_nested
 
+  scope :find_name, ->(name){where "name LIKE ?", "%#{name}%" if name.present?}
   scope :recent_products, ->{order created_at: :desc}
 
   enum status: {disabled: 0, enabled: 1}

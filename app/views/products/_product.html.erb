@@ -5,6 +5,16 @@
     </a>
     <div class="text py-3 pb-4 px-3 text-center">
       <h3><a href="#"><%= product.name %></a></h3>
+      <% if check_sold_out? product.quantity %>
+        <p class="alert alert-danger">
+          <%= t("menu_page.sold_out") %>
+        </p>
+      <% else %>
+        <p class="p-description">
+          <%= t("menu_page.quantity") %>
+          <%= product.quantity %>
+        </p>
+      <% end %>
       <div class="d-flex">
         <div class="pricing">
           <p class="price">
@@ -14,12 +24,14 @@
       </div>
       <div class="bottom-area d-flex px-3">
         <div class="m-auto d-flex">
-          <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+          <%= link_to product_path(product), class: "add-to-cart d-flex justify-content-center align-items-center text-center" do %>
             <span><i class="ion-ios-menu"></i></span>
-          </a>
-          <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-            <span><i class="ion-ios-cart"></i></span>
-          </a>
+          <% end %>
+          <% unless check_sold_out? product.quantity %>
+            <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+              <span><i class="ion-ios-cart"></i></span>
+            </a>
+          <% end %>
         </div>
       </div>
     </div>

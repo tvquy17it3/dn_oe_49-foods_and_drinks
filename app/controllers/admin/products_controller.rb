@@ -62,5 +62,4 @@ class Admin::ProductsController < Admin::AdminsController
       Product.handle_check spreadsheet, header, arr
     end
   end
-
 end
