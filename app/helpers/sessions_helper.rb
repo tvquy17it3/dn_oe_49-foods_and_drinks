@@ -53,4 +53,10 @@ module SessionsHelper
     redirect_to(session[:forwarding_url] || default)
     session.delete(:forwarding_url)
   end
+
+  def unlogged_in?
+    return unless logged_in?
+
+    redirect_back_or root_url
+  end
 end

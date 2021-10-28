@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :unlogged_in?
   layout "signup_signin"
 
   def new

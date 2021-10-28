@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :unlogged_in?, except: :destroy
   layout "signup_signin"
 
   def new; end
