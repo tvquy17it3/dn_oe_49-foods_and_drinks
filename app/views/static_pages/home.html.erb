@@ -70,44 +70,24 @@
 
 <section class="ftco-section ftco-category ftco-no-pt">
   <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-6 order-md-last align-items-stretch d-flex">
-            <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(/assets/images/category.jpg);">
-              <div class="text text-center">
-                <h2><%= t("categories.categories") %></h2>
-                <p><%= t("home_page.protect_the_health") %></p>
-                <p><%= link_to t("home_page.menu_here"), menu_path, class: "btn btn-primary" %></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(/assets/images/category-1.jpg);">
-              <div class="text px-3 py-1">
-                <h2 class="mb-0"><a href="#">Fruits</a></h2>
-              </div>
-            </div>
-            <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(/assets/images/category-2.jpg);">
-              <div class="text px-3 py-1">
-                <h2 class="mb-0"><a href="#">Vegetables</a></h2>
-              </div>
-            </div>
-          </div>
+    <div class="row justify-content-center mb-3 pb-3">
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        <div class="text text-center">
+          <h2><%= t("categories.categories") %></h2>
+          <p><%= t("home_page.protect_the_health") %></p>
+          <p><%= link_to t("home_page.menu_here"), menu_path, class: "btn btn-primary" %></p>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(/assets/images/category-3.jpg);">
-          <div class="text px-3 py-1">
-            <h2 class="mb-0"><a href="#">Juices</a></h2>
-          </div>
-        </div>
-        <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(/assets/images/category-4.jpg);">
-          <div class="text px-3 py-1">
-            <h2 class="mb-0"><a href="#">Dried</a></h2>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10 mb-5 text-center">
+        <ul class="product-category">
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, filter_path(category_id: category.id) %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>

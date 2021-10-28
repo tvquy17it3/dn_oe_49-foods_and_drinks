@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     post :login, to: "sessions#create"
     delete :logout, to: "sessions#destroy"
     get :order, to: "orders#new"
+    get "/filter/:category_id", to: "products#filter", as: :filter
 
     resources :users, only: %i(new create) do
       resources :orders, only: %i(index show) do
@@ -39,7 +40,7 @@ Rails.application.routes.draw do
     # post "products", to: "products#add_to_cart", as: "add_to_cart"
 
     # delete "carts/:id" => "carts#destroy"
-    resources :products, only: :show
+    resources :products, only: %i(index show)
     resources :carts
   end
 end

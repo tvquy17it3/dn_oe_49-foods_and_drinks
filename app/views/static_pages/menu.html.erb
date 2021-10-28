@@ -17,10 +17,9 @@
       <div class="col-md-10 mb-5 text-center">
         <ul class="product-category">
           <li><a href="#" class="active">All</a></li>
-          <li><a href="#">Vegetables</a></li>
-          <li><a href="#">Fruits</a></li>
-          <li><a href="#">Juice</a></li>
-          <li><a href="#">Dried</a></li>
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, filter_path(category_id: category.id) %></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -30,7 +29,7 @@
     <div class="row">
       <%= render @products %>
     </div>
-    <div class="pagination  justify-content-center">
+    <div class="pagination justify-content-center">
       <%= paginate @products %>
     </div>
   </div>
