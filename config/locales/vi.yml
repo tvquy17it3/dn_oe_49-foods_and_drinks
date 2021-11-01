@@ -203,6 +203,9 @@ vi:
     msg_create_success: "Tạo Sản Phẩm Thành Công."
     msg_create_fail: "Danh mục không chính xác."
     msg_show_failer: "Không Tìm Thấy Sản Phẩm."
+    msg_delete_success: "Sản phẩm đã bị xóa"
+    msg_delete_change: "Vì sản phẩm có trong order nên chỉ thay đổi trạng thái của sản phẩm"
+    msg_no_delete: "Sản phẩm không thể xóa"
   page_new_product_admin:
     excel: "Nhập từ tệp Excel"
     import: "Thêm"
@@ -213,6 +216,7 @@ vi:
     row_success: " thêm thành công"
     row: "Hàng: "
     format: "Hãy nhập file Excel"
+    check_status: " Sai trạng thái"
   order_mailer:
     hello: "Chào %{name},"
     title:
@@ -242,3 +246,5 @@ vi:
     msg_update_fail: "Cập nhật thất bại"
   not_permission: "Không có quyền truy cập!"
   dashboard: "Quản lý trang"
+  confirm: "Bạn chắc chắn?"
+  delete: "Xóa"

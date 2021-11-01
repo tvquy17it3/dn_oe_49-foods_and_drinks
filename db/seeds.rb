@@ -1,4 +1,4 @@
-# Fake accounts and address
+Fake accounts and address
 10.times do |n|
   name = Faker::Name.unique.name
   email = "example-#{rand(252...4350)}@test-example.com"
@@ -52,18 +52,18 @@ User.all.each do |user|
 end
 
 # Fake orders
-User.all.sample(10).each do |user|
+User.all.sample(1).each do |user|
   address1 = user.addresses.sample(1)
-  product = Product.all.sample(1)
+  product = Product.last
   order = user.orders.build(
     phone: address1[0].phone,
     address: address1[0].address,
-    total_price: product[0].price,
+    total_price: product.price,
     address_id: address1[0].id)
   order.order_details.build(
     quantity: 2,
-    price: product[0].price,
-    product_id: product[0].id)
+    price: product.price,
+    product_id: product.id)
   order.save
 end
 
