@@ -2,6 +2,8 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_details, dependent: :destroy
   has_many :products, through: :order_details
+
+  delegate :name, to: :address, prefix: true
   delegate :name, :email, to: :user, prefix: true
   enum status: {
     open: Settings.open,

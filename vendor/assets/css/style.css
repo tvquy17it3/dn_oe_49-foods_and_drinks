@@ -1361,7 +1361,7 @@ pre {
   border: 0; }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05); }
+  background-color: rgba(0, 0, 0, 0.1); }
 
 .table-hover tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.075); }
@@ -4580,7 +4580,7 @@ a.close.disabled {
   color: #6c757d;
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 .toast-body {
   padding: 0.75rem; }
@@ -8616,7 +8616,7 @@ h1, h2, h3, h4, h5,
     width: 25%;
     font-size: 40px;
     font-weight: 500;
-    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
     color: #82ae46; }
     @media (max-width: 991.98px) {
       #timer .time {
@@ -8882,7 +8882,7 @@ h1, h2, h3, h4, h5,
 .ftco-cart button, .ftco-cart .form-control {
   height: 54px !important;
   text-align: center;
-  bordeR: 1px solid rgba(0, 0, 0, 0.05) !important;
+  bordeR: 1px solid rgba(0, 0, 0, 0.1) !important;
   color: #000000 !important;
   padding: 0;
   font-size: 14px; }
@@ -8937,7 +8937,7 @@ h1, h2, h3, h4, h5,
     vertical-align: middle;
     padding: 40px 10px;
     border: 1px solid transparent !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important; }
     .table tbody tr td.product-remove a {
       bordeR: 1px solid rgba(0, 0, 0, 0.1);
       padding: 4px 10px;
@@ -8967,7 +8967,7 @@ h1, h2, h3, h4, h5,
 .cart-total {
   width: 100%;
   display: block;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px; }
   .cart-total h3 {
     font-size: 16px;
@@ -9048,9 +9048,9 @@ h1, h2, h3, h4, h5,
 .cart-detail {
   width: 100%;
   display: block;
-  border: 1px solid rgba(0, 0, 0, 0.05); }
+  border: 1px solid rgba(0, 0, 0, 0.1); }
   .cart-detail.cart-total {
-    border: 1px solid rgba(0, 0, 0, 0.05); }
+    border: 1px solid rgba(0, 0, 0, 0.1); }
   .cart-detail .btn-primary {
     display: block;
     width: 100%; }
@@ -9839,7 +9839,7 @@ textarea.form-control {
   position: relative; }
   .search-form .form-group input {
     padding-right: 50px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     color: black;
     font-size: 13px; }
     .search-form .form-group input::-webkit-input-placeholder {

@@ -59,4 +59,12 @@ module SessionsHelper
 
     redirect_back_or root_url
   end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t("log_in.please_log_in")
+    redirect_to login_url
+  end
 end

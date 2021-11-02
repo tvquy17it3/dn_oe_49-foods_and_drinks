@@ -1,0 +1,62 @@
+<%= form_tag orders_path, method: :post do %>
+  <div class="form-group">
+    <div class="row title-order">
+      <h2 class="button-center title-order"><%= t "orders.order_information" %></h2>
+    </div>
+    <% current_user.addresses.each do |add| %>
+      <div class="form-check field-add">
+        <div class="div-left">
+          <% if add.is_default? %>
+            <%= radio_button_tag :address_id, add.id, true, id: "checked" %>
+          <% else %>
+            <%= radio_button_tag :address_id, add.id %>
+          <% end %>
+        </div>
+        <div class="div-left">
+          <%= label_tag nil, add.name, class: "form-lable" %><br>
+          <%= label_tag nil, add.phone, class: "form-lable" %><br>
+          <%= label_tag nil, add.address, class: "form-lable" %><br>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+    <div id="info-new" class="hidden">
+      <div class="form-check field-add">
+        <div class="div-left">
+          <%= radio_button_tag :address, "", true, id: "checked-new" %>
+        </div>
+        <div class="div-left" id="info-lable-new"></div>
+      </div>
+      <hr>
+    </div>
+    <%= label_tag :note, t("orders.note"), class: "form-lable" %>
+    <%= text_area_tag :note, nil, placeholder: t("orders.note"), class: "form-control text-left px-3", id: "order_note" %>
+    <div>
+      <a href="#" class="button-new-address"><%= t("orders.add_new_address") %></a>
+    </div>
+  </div>
+  <div class="row">
+    <%= submit_tag t("orders.order").upcase, class: "btn btn-primary py-3 px-4 clear button-center" %>
+  </div>
+<% end %>
+<!-- Form new address -->
+<div id="form-new-info" class="hidden">
+  <div class="col-md-8 mt-5 cart-wrap ftco-animate address-form form-new-address">
+    <div class="cart-total mb-3">
+        <div class="form-group">
+          <%= label_tag :name_new, t("orders.fullname"), class: "form-lable" %>
+          <%= text_field_tag :name_new, nil, placeholder: t("orders.fullname"), class: "form-control text-left px-3", id: "info-name" %>
+
+          <%= label_tag :phone_new, t("orders.phone"), class: "form-lable" %>
+          <%= phone_field_tag :phone_new, nil, placeholder: t("orders.phone"), class: "form-control text-left px-3", id: "info-phone" %>
+
+          <%= label_tag :address_new, t("orders.address"), class: "form-lable" %>
+          <%= text_field_tag :address_new, nil, placeholder: t("orders.address"), class: "form-control text-left px-3", id: "info-address" %>
+        </div>
+        <div class="row">
+          <%= link_to t("orders.add_new").upcase,"#", class: "btn btn-primary py-3 px-4 button-center", id: "info-submit" %>
+        </div>
+    </div>
+  </div>
+</div>
+<%= javascript_pack_tag "custom", "data-turbolinks-track": "reload" %>

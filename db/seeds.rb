@@ -56,6 +56,7 @@ User.all.sample(1).each do |user|
   address1 = user.addresses.sample(1)
   product = Product.last
   order = user.orders.build(
+    name: address1[0].name,
     phone: address1[0].phone,
     address: address1[0].address,
     total_price: product.price,
@@ -67,14 +68,14 @@ User.all.sample(1).each do |user|
   order.save
 end
 
-# phone = Faker::PhoneNumber.phone_number
-# address = Faker::Address.full_address
-# user = User.create!(name: "Admin",
-#                    email: "admintest@gmail.com",
-#                    password: "123456789",
-#                    password_confirmation: "123456789",
-#                    status: true,
-#                    role: 1)
-# user.addresses.create!(name: user.name,
-#                        phone: phone,
-#                        address: address)
+phone = Faker::PhoneNumber.phone_number
+address = Faker::Address.full_address
+user = User.create!(name: "Admin",
+                   email: "admin@gmail.com",
+                   password: "123456789",
+                   password_confirmation: "123456789",
+                   status: true,
+                   role: 1)
+user.addresses.create!(name: user.name,
+                       phone: phone,
+                       address: address)

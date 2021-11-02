@@ -17,11 +17,11 @@ class ProductsController < ApplicationController
     render "static_pages/menu"
   end
 
-  def show; end
-
   def new; end
 
   def create; end
+
+  def show; end
 
   def filter
     @products = Product.enabled
