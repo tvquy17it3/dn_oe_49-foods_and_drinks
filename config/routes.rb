@@ -37,9 +37,7 @@ Rails.application.routes.draw do
         put :cancel, on: :member
       end
     end
-    # post "products", to: "products#add_to_cart", as: "add_to_cart"
 
-    # delete "carts/:id" => "carts#destroy"
     resources :products, only: %i(index show)
     resources :carts
   end

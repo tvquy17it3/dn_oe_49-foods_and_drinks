@@ -50,7 +50,7 @@
                       <%= number_to_currency(item.price*session[:cart]["#{item.id}"], locale: :vi) %>
                     </td>
                     <td>
-                      <%= button_to t("delete") %>
+                      <%= button_to t("delete"), cart_path(item.id), method: :delete, data: {confirm: t("confirm")} %>
                     </td>
                   </tr>
                 <% end %>
