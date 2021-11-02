@@ -11,6 +11,9 @@ class Product < ApplicationRecord
   scope :find_name, ->(name){where "name LIKE ?", "%#{name}%" if name.present?}
   scope :recent_products, ->{order created_at: :desc}
   scope :find_products_cart, ->(pr_id){where id: pr_id}
+  scope :filter_category, (lambda do |category_id|
+    where(category_id: category_id) if category_id.present?
+  end)
 
   enum status: {disabled: 0, enabled: 1}
 

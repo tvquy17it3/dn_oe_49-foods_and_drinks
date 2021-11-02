@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def initializ_session
     session[:cart] ||= {}
   end
+
+  def categories_select_id_name
+    @categories = Category.select(:id, :name)
+  end
 end

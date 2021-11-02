@@ -17,28 +17,28 @@ Fake accounts and address
 end
 
 # Fake category
-# 10.times do |n|
-#   name = Faker::Food.ingredient
-#   description = Faker::Food.description
-#   Category.create!(name: name, description: description)
-# end
+7.times do |n|
+  name = Faker::Food.ingredient
+  description = Faker::Food.description
+  Category.create!(name: name, description: description)
+end
 
-# # Fake products
-# categories = Category.order(:created_at).take(6)
-# 30.times do |n|
-#   name = Faker::Food.fruits
-#   price = 200000
-#   description = Faker::Food.description
-#   quantity = rand(0..10)
-#   status = 1
-#   categories.each do |category|
-#     category.products.create!(name: name,
-#                               price: price,
-#                               description: description,
-#                               quantity: quantity,
-#                               status: status)
-#   end
-# end
+# Fake products
+130.times do |n|
+  categories = Category.order(:created_at).sample(1)
+  name = Faker::Food.fruits
+  price = 200000
+  description = Faker::Food.description
+  quantity = rand(0..10)
+  status = rand(0..1)
+  categories.each do |category|
+    category.products.create!(name: name,
+                              price: price,
+                              description: description,
+                              quantity: quantity,
+                              status: status)
+  end
+end
 
 # Fake address and set is_default: true
 # User.all.each do |user|

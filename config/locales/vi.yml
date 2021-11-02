@@ -63,6 +63,7 @@ vi:
     search: "Tìm Kiếm"
     search_name_product: "Tìm kiếm món ăn và thức uống ..."
     search_pro_nil: "Không tìm thấy kết quả phù hợp"
+    filter_category_nil: "Không có sản phẩm nào thuộc danh mục sản phẩm này!"
     quantity: "Số lượng: "
     sold_out: "Sản phẩm đã bán hết"
   footer:
@@ -75,7 +76,7 @@ vi:
     copyright: "Bản quyền"
     template_made_by: " | Mẫu này được tạo bởi"
   categories:
-    categories: "Thể loại"
+    categories: "Danh mục sản phẩm"
   sign_up:
     sign_up: "Đăng Ký"
     dont_account: "Bạn đã có tài khoản? "
