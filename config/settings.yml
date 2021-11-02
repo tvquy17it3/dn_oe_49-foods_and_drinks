@@ -21,6 +21,7 @@ gravatar:
   size_80: 80
   size_198: 198
   size_100: 100
+  size_250: 250
 per_page_15: 15
 per_page_16: 16
 image:
@@ -28,6 +29,7 @@ image:
   format: ["image/png", "image/jpg", "image/jpeg"]
 resize_images: "300x300!"
 resize_thumbnail: "80x80!"
+resize_thumbnail_index: "250x250!"
 row_1: 1
 row_2: 2
 out_of_stock: 0

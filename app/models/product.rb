@@ -10,6 +10,7 @@ class Product < ApplicationRecord
 
   scope :find_name, ->(name){where "name LIKE ?", "%#{name}%" if name.present?}
   scope :recent_products, ->{order created_at: :desc}
+  scope :find_products_cart, ->(pr_id){where id: pr_id}
 
   enum status: {disabled: 0, enabled: 1}
 
@@ -80,11 +81,11 @@ class Product < ApplicationRecord
   class << self
     private
 
-    def check_create row, arr, i
+    def check_create row, arr, index
       if check_status? row["status"]
-        arr.push(i) unless Product.create! row
+        arr.push(index) unless Product.create! row
       else
-        arr.push(I18n.t("validate_excel.row") + i.to_s +
+        arr.push(I18n.t("validate_excel.row") + index.to_s +
                  I18n.t("validate_excel.check_status"))
       end
     end

@@ -36,7 +36,7 @@
                 <span><%= number_to_currency(@product.price, locale: :vi) %></span>
               </h5>
                 <% if @product.quantity > Settings.out_of_stock %>
-                  <%= form_tag "#" do %>
+                  <%= form_tag carts_path do %>
                     <%= hidden_field_tag :product_id, @product.id %>
                     <h6><%= t "product.detail.quantity" %></h6>
                     <div class="form-group">

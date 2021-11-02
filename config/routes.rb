@@ -24,7 +24,8 @@ Rails.application.routes.draw do
     get :about, to: "static_pages#about"
     get :blog, to: "static_pages#blog"
     get :contact, to: "static_pages#contact"
-    get :cart, to: "static_pages#cart"
+    # post "carts/:id", to: "carts#create", as: "cart"
+    # get "static_pages/add_to_cart/:id", to: redirect("/carts"), as: "add_to_cart"
     get :login, to: "sessions#new"
     post :login, to: "sessions#create"
     delete :logout, to: "sessions#destroy"
@@ -35,6 +36,10 @@ Rails.application.routes.draw do
         put :cancel, on: :member
       end
     end
+    # post "products", to: "products#add_to_cart", as: "add_to_cart"
+
+    # delete "carts/:id" => "carts#destroy"
     resources :products, only: :show
+    resources :carts
   end
 end

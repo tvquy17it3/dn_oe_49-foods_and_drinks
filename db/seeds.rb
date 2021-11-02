@@ -17,39 +17,39 @@ Fake accounts and address
 end
 
 # Fake category
-10.times do |n|
-  name = Faker::Food.ingredient
-  description = Faker::Food.description
-  Category.create!(name: name, description: description)
-end
+# 10.times do |n|
+#   name = Faker::Food.ingredient
+#   description = Faker::Food.description
+#   Category.create!(name: name, description: description)
+# end
 
-# Fake products
-categories = Category.order(:created_at).take(6)
-30.times do |n|
-  name = Faker::Food.fruits
-  price = 200000
-  description = Faker::Food.description
-  quantity = rand(0..10)
-  status = 1
-  categories.each do |category|
-    category.products.create!(name: name,
-                              price: price,
-                              description: description,
-                              quantity: quantity,
-                              status: status)
-  end
-end
+# # Fake products
+# categories = Category.order(:created_at).take(6)
+# 30.times do |n|
+#   name = Faker::Food.fruits
+#   price = 200000
+#   description = Faker::Food.description
+#   quantity = rand(0..10)
+#   status = 1
+#   categories.each do |category|
+#     category.products.create!(name: name,
+#                               price: price,
+#                               description: description,
+#                               quantity: quantity,
+#                               status: status)
+#   end
+# end
 
 # Fake address and set is_default: true
-User.all.each do |user|
-  2.times do
-  user.addresses.create(
-    name: Faker::Name.unique.name,
-    phone: Faker::PhoneNumber.phone_number,
-    address: Faker::Address.full_address)
-  end
-  user.addresses.last.update_column :is_default, true
-end
+# User.all.each do |user|
+#   2.times do
+#   user.addresses.create(
+#     name: Faker::Name.unique.name,
+#     phone: Faker::PhoneNumber.phone_number,
+#     address: Faker::Address.full_address)
+#   end
+#   user.addresses.last.update_column :is_default, true
+# end
 
 # Fake orders
 User.all.sample(1).each do |user|
@@ -67,14 +67,14 @@ User.all.sample(1).each do |user|
   order.save
 end
 
-phone = Faker::PhoneNumber.phone_number
-address = Faker::Address.full_address
-user = User.create!(name: "Admin",
-                   email: "admintest@gmail.com",
-                   password: "123456789",
-                   password_confirmation: "123456789",
-                   status: true,
-                   role: 1)
-user.addresses.create!(name: user.name,
-                       phone: phone,
-                       address: address)
+# phone = Faker::PhoneNumber.phone_number
+# address = Faker::Address.full_address
+# user = User.create!(name: "Admin",
+#                    email: "admintest@gmail.com",
+#                    password: "123456789",
+#                    password_confirmation: "123456789",
+#                    status: true,
+#                    role: 1)
+# user.addresses.create!(name: user.name,
+#                        phone: phone,
+#                        address: address)
