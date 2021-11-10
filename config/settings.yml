@@ -42,3 +42,5 @@ rspec:
   length_12: 12
   length_20: 20
   length_101: 101
+  length_251: 251
+  length_negative_1: -1
