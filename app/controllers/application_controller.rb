@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   add_flash_types :info, :error, :warning
   before_action :initializ_session
 
+  protect_from_forgery with: :exception
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   private
 
   def set_locale
@@ -28,5 +32,14 @@ class ApplicationController < ActionController::Base
 
   def categories_select_id_name
     @categories = Category.select(:id, :name)
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    added_attrs = [:name, :email, :password,
+                   :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 end

@@ -94,6 +94,8 @@ vi:
     log_in_unsuccess: "Đăng nhập không thành công!"
     remember_me: "Ghi Nhớ Tôi"
     please_log_in: "Vui Lòng Đăng Nhập!"
+    forgot_password: "Quên mật khẩu?"
+    not_receive_confirm: "Không nhận được hướng dẫn xác nhận?"
   log_out: "Đăng Xuất"
   profile: "Hồ Sơ"
   setting: "Cài Đặt"

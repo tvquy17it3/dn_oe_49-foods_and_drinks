@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
+    devise_for :users
+    as :user do
+      get "login" => "devise/sessions#new"
+      delete "logout" => "devise/sessions#destroy"
+    end
+
     namespace :admin do
       root "orders#index"
       resources :orders do
@@ -24,9 +30,6 @@ Rails.application.routes.draw do
     get :about, to: "static_pages#about"
     get :blog, to: "static_pages#blog"
     get :contact, to: "static_pages#contact"
-    get :login, to: "sessions#new"
-    post :login, to: "sessions#create"
-    delete :logout, to: "sessions#destroy"
     get :order, to: "orders#new"
     get "/filter/:category_id", to: "products#filter", as: :filter
 
