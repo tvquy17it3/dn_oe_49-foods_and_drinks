@@ -94,6 +94,8 @@ en:
     log_in_unsuccess: "Log in unsuccess!"
     remember_me: "Remember Me"
     please_log_in: "Please Login!"
+    forgot_password: "Forgot your password?"
+    not_receive_confirm: "Didn't receive confirmation instructions?"
   log_out: "Log Out"
   profile: "Profile"
   setting: "Setting"
@@ -275,3 +277,4 @@ en:
   cart: "Cart"
   my_cart: "My Cart"
   cart_empty: "There are no products in the cart!"
+

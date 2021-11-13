@@ -1,27 +1,15 @@
 class UsersController < ApplicationController
-  before_action :unlogged_in?
-  layout "signup_signin"
+  before_action :authenticate_user!, :load_user, only: :show
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      log_in @user
-      remember @user
-      flash.now[:success] = t("sign_up.message_sign_up_success")
-      redirect_to root_url
-    else
-      flash.now[:danger] = t("sign_up.message_sign_up_fail")
-      render :new
-    end
-  end
+  def show; end
 
   private
 
-  def user_params
-    params.require(:user).permit User::SIGNUP_ATTRS
+  def load_user
+    @user = User.find_by(id: params[:id])
+    return if @user
+
+    flash[:danger] = t "user_not_found"
+    redirect_to root_url
   end
 end
