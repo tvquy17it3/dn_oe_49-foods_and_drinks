@@ -1,4 +1,5 @@
 length:
+  min_2: 2
   min_5: 5
   min_8: 8
   max_100: 100
@@ -45,3 +46,4 @@ rspec:
   length_251: 251
   length_negative_1: -1
   quantity_1: 1
+  float1_1: 1.1

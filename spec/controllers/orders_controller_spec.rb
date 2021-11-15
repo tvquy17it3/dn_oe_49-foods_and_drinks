@@ -178,7 +178,7 @@ RSpec.describe OrdersController, type: :controller do
         session[:cart] = session_params
         post :create, params: {
           user_id: user.id,
-          address: "Foo_Da Nang_09099999",
+          address: "Nguyen Van A_NHS, Da Nang _09099999",
           session: session_params
         }
       end
