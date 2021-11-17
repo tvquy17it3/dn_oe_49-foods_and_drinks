@@ -59,8 +59,8 @@
             <b class="caret"></b>
           <% end %>
           <ul class="dropdown-menu">
-            <% if logged_in? %>
-              <li><%= link_to t("profile"), "#", class: "dropdown-item" %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to t("profile"), user_path(current_user), class: "dropdown-item" %></li>
               <li><%= link_to t("setting"), "#", class: "dropdown-item" %></li>
               <% if current_user.role? %>
                 <li>
@@ -74,7 +74,7 @@
                 <%= button_to t("log_out"), logout_path, method: :delete, class: "dropdown-item" %>
               </li>
             <% else %>
-              <li><%= link_to t("sign_up.sign_up"), new_user_path, class: "dropdown-item" %></li>
+              <li><%= link_to t("sign_up.sign_up"), signup_path, class: "dropdown-item" %></li>
               <li><%= link_to t("log_in.log_in"), login_path, class: "dropdown-item" %></li>
             <% end %>
           </ul>

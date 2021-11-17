@@ -2,54 +2,44 @@ require "rails_helper"
 include SessionsHelper
 
 RSpec.describe UsersController, type: :controller do
-  describe "GET #new" do
-    subject {get :new}
-
-    context 'when user unlogged' do
-      it "render new" do
-        expect(subject).to render_template(:new)
-      end
-      it "not render different template" do
-        expect(subject).to_not render_template(:show)
-      end
-    end
-
-    context 'when user is logged' do
-      it "redirect to the root_url" do
-        user = FactoryBot.create :user
-        log_in user
-        expect(subject).to redirect_to root_url
-      end
-    end
-  end
-
-  describe "POST #create" do
-    context "when valid params" do
+  describe "GET #show" do
+    let(:user) {FactoryBot.create :user}
+    context "when not logged in" do
       before do
-        post :create, params: { user: {
-          name: Faker::Name.name_with_middle,
-          email: "test@example.com",
-          password: "Hello@1234",
-          password_confirmation: "Hello@1234"
-        }}
+        get :show, params: {locale: I18n.locale, id: user.id}
       end
-      it "redirect to the root_url" do
-        expect(response).to redirect_to root_url
-      end
-      it "display flash" do
-        expect(flash[:success]).to eq I18n.t("sign_up.message_sign_up_success")
+
+      it "redirect to the login" do
+        expect(response).to redirect_to new_user_session_path
       end
     end
 
-    context "when invalid params" do
+    context "when user is logged in" do
       before do
-        post :create, params: { user: { name: "", email:"foo" }}
+        sign_in user
+        get :show, params: {id: user.id}
       end
-      it "render new" do
-        expect(response).to render_template :new
+
+      it "assigns @user" do
+        expect(assigns(:user)).to eq user
       end
-      it "display flash" do
-        expect(flash[:danger]).to eq I18n.t("sign_up.message_sign_up_fail")
+
+      it "render show" do
+        expect(response).to render_template(:show)
+      end
+    end
+
+    context "when is invalid" do
+      before do
+        sign_in user
+        get :show, params: {id: Settings.rspec.length_negative_1}
+      end
+
+      it "show flash danger" do
+        expect(flash[:danger]).to eq I18n.t("user_not_found")
+      end
+      it "redirect to the root" do
+        expect(response).to redirect_to root_path
       end
     end
   end

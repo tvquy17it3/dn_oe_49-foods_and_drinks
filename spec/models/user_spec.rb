@@ -27,37 +27,7 @@ RSpec.describe User, type: :model do
       it "is not valid with too long" do
         is_expected.to_not validate_length_of(:name).is_at_most(Settings.rspec.length_101)
       end
-      it "is valid" do
-        is_expected.to_not validate_length_of(:name).is_at_most(Settings.rspec.length_20)
-      end
-    end
-
-    context "email" do
-      it "when nil is invalid" do
-        expect(FactoryBot.build(:user, email: nil)).to_not be_valid
-      end
-      it "must uniqueness" do
-        is_expected.to validate_uniqueness_of(:email).case_insensitive
-      end
-      it "when too long is invalid" do
-        is_expected.to_not allow_value("foo").for(:email)
-      end
-      it "when too long is invalid" do
-        is_expected.to allow_value("foo@gmail.com").for(:email)
-      end
-    end
-
-    context "password" do
-      it "when nil is invalid" do
-        subject.password = nil
-        is_expected.to_not be_valid
-      end
-      it "when too short is invalid" do
-        is_expected.to_not validate_length_of(:password).is_at_most(Settings.rspec.length_7)
-      end
-      it "when valid" do
-        is_expected.to_not validate_length_of(:password).is_at_most(Settings.rspec.length_12)
-      end
+      it { is_expected.to validate_length_of(:name).is_at_least(Settings.length.min_5).is_at_most(Settings.length.max_100) }
     end
   end
 
@@ -71,10 +41,6 @@ RSpec.describe User, type: :model do
       it "return orders of user has sort DESC" do
         expect user.all_orders.recent_orders.should eq [order_2, order_1]
       end
-    end
-
-    it "forget user" do
-      expect user.forget.should eq true
     end
   end
 end

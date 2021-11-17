@@ -3,13 +3,14 @@ include SessionsHelper
 
 RSpec.describe Admin::OrdersController, type: :controller do
   describe "GET #index" do
+    let!(:user) {FactoryBot.create :user, role: false}
     context "when not logged in" do
       before do
-        get :index
+        get :index, params: {locale: I18n.locale}
       end
 
-      it "redirect to root_url" do
-        expect(response).to redirect_to login_url
+      it "redirect to login" do
+        expect(response).to redirect_to new_user_session_path
       end
     end
 
@@ -17,7 +18,7 @@ RSpec.describe Admin::OrdersController, type: :controller do
       context "when not permission" do
         let!(:user) {FactoryBot.create :user, role: false}
         before do
-          log_in user
+          sign_in user
           get :index
         end
 
@@ -34,7 +35,7 @@ RSpec.describe Admin::OrdersController, type: :controller do
         let!(:order_1) {FactoryBot.create :order}
         let!(:order_2) {FactoryBot.create :order}
         before do
-          log_in user
+          sign_in user
           get :index
         end
 
@@ -48,7 +49,7 @@ RSpec.describe Admin::OrdersController, type: :controller do
   describe "when logged in and has permission" do
     let(:user) {FactoryBot.create :user, role: true}
     before do
-      log_in user
+      sign_in user
     end
 
     describe "GET #index_by_status" do

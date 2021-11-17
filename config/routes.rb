@@ -24,13 +24,16 @@ Rails.application.routes.draw do
     get :about, to: "static_pages#about"
     get :blog, to: "static_pages#blog"
     get :contact, to: "static_pages#contact"
-    get :login, to: "sessions#new"
-    post :login, to: "sessions#create"
-    delete :logout, to: "sessions#destroy"
     get :order, to: "orders#new"
     get "/filter/:category_id", to: "products#filter", as: :filter
 
-    resources :users, only: %i(new create) do
+    devise_for :users
+    as :user do
+      get "login" => "devise/sessions#new"
+      get "signup", to: "devise/registrations#new"
+      delete "logout" => "devise/sessions#destroy"
+    end
+    resources :users, only: %i(show) do
       resources :orders, only: %i(index show) do
         put :cancel, on: :member
       end

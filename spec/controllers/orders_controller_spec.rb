@@ -6,10 +6,10 @@ RSpec.describe OrdersController, type: :controller do
 
   describe "GET #index" do
     context "when user unlogged" do
-      subject {get :index, params: {user_id: user.id}}
+      subject {get :index, params: {locale: I18n.locale, user_id: user.id}}
 
-      it "redirect to the root_url" do
-        expect(subject).to redirect_to login_url
+      it "redirect to the login" do
+        expect(subject).to redirect_to new_user_session_path
       end
       it "not redirect different url" do
         expect(subject).to_not redirect_to root_url
@@ -19,7 +19,7 @@ RSpec.describe OrdersController, type: :controller do
     context "when user is logged" do
       let!(:order) {FactoryBot.create :order}
       before do
-        log_in order.user
+        sign_in order.user
         @order = order.user.all_orders
         get :index, params: {user_id: order.user.id}
       end
@@ -36,7 +36,7 @@ RSpec.describe OrdersController, type: :controller do
   describe "GET #show" do
     let!(:order) {FactoryBot.create :order, user_id: user.id}
     before do
-      log_in order.user
+      sign_in order.user
     end
 
     context "when order exist" do
@@ -82,7 +82,7 @@ RSpec.describe OrdersController, type: :controller do
 
   describe "GET #new" do
     before do
-      log_in user
+      sign_in user
       session[:cart] = {}
       get :new, params: {user_id: user.id}
     end
@@ -117,7 +117,7 @@ RSpec.describe OrdersController, type: :controller do
   describe "PUT #cancel" do
     let!(:order) {FactoryBot.create :order, status: :open, user_id: user.id}
     before do
-      log_in order.user
+      sign_in order.user
     end
 
     context "when order status open" do
@@ -148,7 +148,7 @@ RSpec.describe OrdersController, type: :controller do
   describe "POST #create" do
     let!(:product) {FactoryBot.create :product}
     before do
-      log_in user
+      sign_in user
       session[:cart] = {}
     end
 
