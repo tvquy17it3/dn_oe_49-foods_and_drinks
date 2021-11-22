@@ -4,8 +4,7 @@ class ProductsController < ApplicationController
   authorize_resource
 
   def index
-    @products = Product.enabled
-                       .find_name(params[:name])
+    @products = @q.result.enabled
 
     if @products.empty?
       @products = Product

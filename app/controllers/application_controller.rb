@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from CanCan::AccessDenied, with: :access_denied
+  before_action :set_search
 
   private
 
@@ -35,6 +36,10 @@ class ApplicationController < ActionController::Base
   def record_not_found
     flash[:danger] = t "record_not_found"
     redirect_to root_url
+  end
+
+  def set_search
+    @q = Product.ransack(params[:q])
   end
 
   protected

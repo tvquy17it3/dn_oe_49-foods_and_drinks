@@ -415,7 +415,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-controller-testing
   rails-i18n
-  ransack (~> 2.4, >= 2.4.2)
+  ransack
   roo (~> 2.8, >= 2.8.3)
   rspec-rails (~> 4.0.1)
   rubocop (~> 0.74.0)

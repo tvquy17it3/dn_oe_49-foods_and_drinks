@@ -5,9 +5,9 @@ RSpec.describe ProductsController, type: :controller do
     let!(:product_1) {FactoryBot.create :product}
     let!(:product_2) {FactoryBot.create :product}
 
-    context "when the input name is valid" do
+    context "when  search name is valid" do
       before do
-        get :index, params: {name: product_1.name}
+        get :index, params: {q: {name_cont: product_1.name}}
       end
       it "assigns @product" do
         expect(assigns(:products)).to eq [product_1]
@@ -17,9 +17,9 @@ RSpec.describe ProductsController, type: :controller do
       end
     end
 
-    context "when the input name is invalid" do
+    context "when search name is invalid" do
       before do
-        get :index, params: {name: Settings.rspec.length_negative_1}
+        get :index, params: {q: {name_cont: Settings.rspec.length_negative_1}}
       end
       it "display flash danger" do
         expect(flash[:danger]).to eq I18n.t("menu_page.search_pro_nil")

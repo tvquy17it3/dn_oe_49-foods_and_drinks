@@ -6,6 +6,14 @@
     </div></br>
     <div class="title_right">
       <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+        <%= search_form_for(@q, url: admin_orders_path, method: :get) do |f| %>
+          <div class="input-group">
+            <%= f.search_field :name_or_phone_or_address_cont, class: "form-control" %>
+            <span class="input-group-btn">
+                <%= f.submit t("menu_page.search"), class: "btn btn-secondary" %>
+            </span>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

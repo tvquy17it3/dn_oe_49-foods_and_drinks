@@ -1,4 +1,4 @@
-<%= form_tag menu_path, method: :get do %>
-  <%= text_field_tag :name, nil, placeholder: t("menu_page.search_name_product") %>
-  <%= submit_tag t("menu_page.search"), class: "btn-outline-success" %>
+<%= search_form_for(@q, url: menu_path, method: :get) do |f| %>
+  <%= f.search_field :name_or_description_cont, placeholder: t("menu_page.search_name_product") %>
+  <%= f.submit t("menu_page.search"), class: "btn-outline-success" %>
 <% end %>

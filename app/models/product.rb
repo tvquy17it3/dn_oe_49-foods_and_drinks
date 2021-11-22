@@ -21,7 +21,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true,
     length: {
-      minimum: Settings.length.min_5,
+      minimum: Settings.length.min_2,
       maximum: Settings.length.max_250
     }
 

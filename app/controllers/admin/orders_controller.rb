@@ -2,12 +2,13 @@ class Admin::OrdersController < Admin::AdminsController
   before_action :load_order, :load_order_details,
                 except: %i(index index_by_status)
   before_action :check_quantity_product, only: :approve
+  before_action :set_search
 
   def index
     @title = t "orders.all"
-    @orders = Order.includes(:order_details, :user)
-                   .recent_orders.page(params[:page])
-                   .per(Settings.show_10)
+    @orders = @q.result.includes(:order_details, :user)
+                .recent_orders.page(params[:page])
+                .per(Settings.show_10)
   end
 
   def index_by_status
@@ -143,5 +144,9 @@ class Admin::OrdersController < Admin::AdminsController
 
     flash[:danger] = t("orders.quantity_not_enough") << prd_name
     redirect_back(fallback_location: admin_orders_path)
+  end
+
+  def set_search
+    @q = Order.ransack(params[:q])
   end
 end

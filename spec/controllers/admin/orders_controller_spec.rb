@@ -30,17 +30,54 @@ RSpec.describe Admin::OrdersController, type: :controller do
         end
       end
 
-      context "when has permission, show order DESC" do
+      describe "when has permission" do
         let!(:user) {FactoryBot.create :user, role: true}
         let!(:order_1) {FactoryBot.create :order}
         let!(:order_2) {FactoryBot.create :order}
         before do
           sign_in user
-          get :index
         end
 
-        it "assigns @orders" do
-          expect(assigns(:orders)).to eq [order_2, order_1]
+        context "show order DESC" do
+          let!(:user) {FactoryBot.create :user, role: true}
+          let!(:order_1) {FactoryBot.create :order}
+          let!(:order_2) {FactoryBot.create :order}
+          before do
+            get :index
+          end
+
+          it "assigns @orders" do
+            expect(assigns(:orders)).to eq [order_2, order_1]
+          end
+          it "renders the template index" do
+            expect(response).to render_template :index
+          end
+        end
+
+        context "when search name is valid" do
+          before do
+            get :index, params: {q: {name_cont: order_2.name}}
+          end
+
+          it "assigns @orders" do
+            expect(assigns(:orders)).to eq [order_2]
+          end
+          it "renders the template index" do
+            expect(response).to render_template :index
+          end
+        end
+
+        context "when search name is invalid" do
+          before do
+            get :index, params: {q: {name_cont: Settings.rspec.length_negative_1}}
+          end
+
+          it "assigns @orders" do
+            expect(assigns(:orders)).to eq []
+          end
+          it "renders the template index" do
+            expect(response).to render_template :index
+          end
         end
       end
     end
